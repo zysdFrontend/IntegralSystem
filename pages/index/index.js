@@ -52,7 +52,7 @@ Page({
         console.log(res);
         this.setData({
           availablePoints: res.data.para1,
-          receivedPoints: res.data.para4,
+          receivedPoints: res.data.para3,
           totalPoints: res.data.para2
         })
       }

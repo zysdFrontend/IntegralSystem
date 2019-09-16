@@ -61,6 +61,10 @@
   color: #333;
 }
 
+.receciver_name{
+  visibility: hidden;
+}
+
 .input_form input{
   width: 70%;
   height: 80rpx;

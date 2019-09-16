@@ -17,8 +17,15 @@
         <text class="icon ijiantou1"></text>
       </view>
       <view class="person">
-        <image class="userinfo_avatar" src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2471845590,913308006&fm=26&gp=0.jpg" mode="cover"></image>
-        <text class="userinfo_nickname">???</text>
+        <image class="userinfo_avatar" src="{{receiverInfo.avatarUrl}}" mode="cover" wx:if="{{receiverInfo.avatarUrl}}"></image>
+        <image 
+          class="userinfo_avatar"
+          src="/assets/images/login_default.svg"
+          mode="cover"
+          wx:if="{{!receiverInfo.avatarUrl}}">
+        </image>
+        <text class="userinfo_nickname">{{receiverInfo.name}}</text>
+        <text class="userinfo_nickname receciver_name" wx:if="{{!receiverInfo.name}}">...</text>
       </view>
     </view>
     <view class="input_form">

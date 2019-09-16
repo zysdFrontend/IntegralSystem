@@ -4,6 +4,8 @@ const app = getApp();
 Page({
   data: {
     userInfo: {},
+    receiverOpenId: '',
+    receiverInfo: {},
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     availablePoints: '',       // 可用积分
     tradePoints: '',           // 转账积分
@@ -11,14 +13,38 @@ Page({
   },
 
   onLoad: function (options) {
-    console.log('转账页面options：' + options);
+    this.setData({
+      receiverOpenId: options.scene
+    })
+
+    this.checkReceiver(this.data.receiverOpenId);
     this.onGetUserInfo();
     this.getAccountInfo();
     this.getReceiverInfo();
   },
 
   /**
-   * 获取用户信息
+   * 判断转账对象是否合法
+   */
+  checkReceiver (receiverOpenId) {
+    let openid = wx.getStorageSync('openid');
+    if (openid === receiverOpenId) {    // 收款者是自己
+      wx.showModal({
+        title: '提示',
+        content: '不能向自己转账',
+        confirmText: '确定',
+        showCancel: false,
+        success: function (res) {
+          wx.reLaunch({
+            url: '/pages/index/index',
+          })
+        }
+      });
+    }
+  },
+
+  /**
+   * 获取个人用户信息
    */
   onGetUserInfo() {
     if (app.globalData.userInfo) {
@@ -44,10 +70,20 @@ Page({
       url: app.globalData.pathPrefix + '/getuser',
       method: 'GET',
       data: {
-        id: 'oW22B4hKsAwEx31RkxqWRXWSqnCI'    // 暂时写死
+        id: this.data.receiverOpenId    
       },
       success: (res) => {
-        console.log(res);
+        if (res.data.result) {          
+          // 保存收款方用户信息
+          let infoObj = {
+            name: res.data.name,
+            wxid: res.data.wxid,
+            avatarUrl: res.data.url
+          };
+          this.setData({
+            receiverInfo: infoObj
+          })
+        }
       }
     })
   },
@@ -86,6 +122,7 @@ Page({
   confirmTrade (e) {
     let openid = wx.getStorageSync('openid');
     let points = this.data.tradePoints;
+    let receiverOpenId = this.data.receiverInfo.wxid;
     let remark = this.data.reason;
 
     if (this.checkInput() === 1) {
@@ -101,7 +138,7 @@ Page({
               data: {
                 id: openid,
                 amount: points,
-                receiver: 'oW22B4hKsAwEx31RkxqWRXWSqnCI',   // 暂时写死，到时再改
+                receiver: receiverOpenId,   
                 remark: remark
               },
               success: (res) => {
