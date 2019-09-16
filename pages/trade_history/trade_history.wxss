@@ -1,0 +1,98 @@
+/* pages/trade_history/trade_history.wxss */
+/* page{
+  background-color: #facc01;
+}
+
+.container{
+  padding: 60rpx 0;
+}
+
+.history_list{
+  width: 88%;
+  margin: 0 auto;
+}
+
+.history_item{
+  margin-bottom: 40rpx;
+  padding: 30rpx;
+  background-color: rgba(255, 255, 255, .9);
+  color: #333;
+  border-radius: 6px;
+}
+
+.history_item .date{
+  height: 40rpx;
+  line-height: 40rpx;
+  margin-bottom: 30rpx;
+  padding-bottom: 20rpx;
+  font-size: 36rpx;
+  border-bottom: 1px solid #eee;
+}
+
+.history_item .info{
+  overflow: hidden;
+}
+
+.history_item .item{
+  float: left;
+  width: 50%;
+  line-height: 40rpx;
+  margin-bottom: 20rpx;
+} */
+
+.list_item{
+  padding: 30rpx 30rpx 30rpx 40rpx;
+  border-bottom: 1px solid #eee;
+  font-size: 28rpx;
+}
+
+.list_item .header{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.list_item .header .left view{
+  margin-bottom: 10rpx;
+}
+
+.list_item .header .left text{
+  display: inline-block;
+}
+
+.list_item text.color{
+  color: #f7aa06;
+  margin-right: 20rpx;
+}
+
+.list_item .header .right{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 48rpx;
+}
+
+.list_item .header .right .icon:before{
+  display: inline-block;
+  transition: transform 0.1s linear;
+}
+
+.list_item .header .right .icon.rotate:before{
+  transform: rotate(90deg);
+  transition: transform 0.1s linear;
+}
+
+.list_item .body .item{
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+  margin: 10rpx auto;
+}
+
+.no_data{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #ccc;
+}

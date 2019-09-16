@@ -1,0 +1,58 @@
+<!--pages/trade_result/trade_result.wxml-->
+<view class="container">
+  <view class="header">
+    <view class="header_content">
+      <text class="success_text">转账成功</text>
+      <text class="icon ixiaolian"></text>
+    </view>
+  </view>
+
+  <view class="trade_info">
+    <text class="bold">转出积分：</text>
+    <text class="total">{{tradePoints}}</text>
+  </view>
+
+  <view class="points_info">
+    <view class="item">
+      <text class="text">本月可用积分</text>
+      <text class="num">{{availablePoints}}</text>
+    </view>
+    <view class="item">
+      <text class="text">本月送出</text>
+      <text class="num">{{sentPoints}}</text>
+    </view>
+    <view class="item">
+      <text class="text">本月获得积分</text>
+      <text class="num">{{receivedPoints}}</text>
+    </view>
+    <view class="item">
+      <text class="text">累计积分</text>
+      <text class="num">{{totalPoints}}</text>
+    </view>
+  </view>
+
+  <view class="top5">
+    <view class="title">积分榜Top5</view>
+    <view class="table">
+      <view class="thead">
+        <view>排名</view>
+        <view>姓名</view>
+        <view>积分</view>
+        <view>可用积分</view>
+      </view>
+      <view class="tbody">
+        <view class="item" wx:for="{{rankList}}" wx:key="index">
+          <view class="rank">
+            <image wx:if="{{index === 0}}" src="../../assets/images/NO.1.svg"></image>
+            <image wx:elif="{{index === 1}}" src="../../assets/images/NO.2.svg"></image>
+            <image wx:elif="{{index === 2}}" src="../../assets/images/NO.3.svg"></image>
+            <text data-index="index" wx:else>{{index + 1}}</text>
+          </view>
+          <view><text>{{item.name}}</text></view>
+          <view><text>{{item.balance_redpack}}</text></view>
+          <view><text>{{item.balance}}</text></view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

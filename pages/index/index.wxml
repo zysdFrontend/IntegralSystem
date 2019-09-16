@@ -1,0 +1,36 @@
+<!--index.wxml-->
+<view class="container">
+  <button open-type="getUserInfo" bindgetuserinfo="getUserInfo"></button>
+  <view class="user_pic">
+    <image class="userinfo_avatar" src="{{userInfo.avatarUrl}}" mode="cover" wx:if="{{userInfo.avatarUrl}}"></image>
+    <image 
+      class="userinfo_avatar"
+      src="/assets/images/login_default.svg"
+      mode="cover"
+      wx:if="{{!userInfo.avatarUrl}}">
+    </image>
+    <text class="userinfo_nickname">{{userInfo.nickName}}</text>
+  </view>
+
+  <view class="points_info">
+    <view class="item">
+      <text class="num">{{availablePoints}}</text>
+      <text class="txt">可用积分</text>
+    </view>
+    <view class="item">
+      <text class="num">{{receivedPoints}}</text>
+      <text class="txt">收到积分</text>
+    </view>
+    <view class="item">
+      <text class="num">{{totalPoints}}</text>
+      <text class="txt">累计积分</text>
+    </view>
+  </view>
+
+  <view class="qcode">
+    <image bindtap="previewPic" class="pic" src="{{qecodeUrl}}"></image>
+    <view class="btns_box" bindtap="toHistory">
+      <text>收款记录</text>
+    </view>
+  </view>
+</view>

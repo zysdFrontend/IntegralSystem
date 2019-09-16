@@ -1,0 +1,76 @@
+{
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"coverView": true,
+		"autoAudits": false,
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		}
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.8.2",
+	"appid": "wxf29113dcf17a3978",
+	"projectname": "integral_sys",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 2,
+			"list": [
+				{
+					"id": -1,
+					"name": "积分转账",
+					"pathName": "pages/trade/trade",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "转账成功",
+					"pathName": "pages/trade_result/trade_result",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "收款记录",
+					"pathName": "pages/trade_history/trade_history",
+					"scene": null
+				}
+			]
+		}
+	}
+}

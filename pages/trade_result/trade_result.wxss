@@ -1,0 +1,141 @@
+/* pages/trade_result/trade_result.wxss */
+.container{
+  height: 100%;
+}
+
+.header{
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 400rpx;
+  margin-bottom: 30rpx;
+  z-index: -1;
+  overflow: hidden;
+  background-color: #facc01;
+}
+
+.header::after{
+  position: absolute;
+  top: 300rpx;
+  left: -20%;
+  content: "";
+  width: 140%;
+  height: 200rpx;
+  border-radius: 50% 50% 0 0;
+  background-color: #fff;
+  z-index: -1;
+}
+
+.header .header_content{
+  position: relative;
+  top: -50rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.header .header_content .success_text{
+  font-size: 44rpx;
+  color: #fff;
+}
+
+.header .header_content .icon{
+  margin-top: 20rpx;
+}
+
+.header .header_content .icon::before{
+  color: #fff;
+  font-size: 70rpx;
+}
+
+.trade_info{
+  margin: 20rpx 0 60rpx;
+  text-align: center;
+}
+
+.trade_info .bold{
+  font-size: 44rpx;
+  font-weight: bold;
+}
+
+.trade_info .total{
+  font-size: 68rpx;
+  font-weight: bold;
+  color: #f7aa06;
+}
+
+.points_info{
+  padding: 0 100rpx;
+  margin-bottom: 70rpx;
+}
+
+.points_info .item{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+}
+
+.points_info .item .text{
+  color: #333;
+}
+
+.points_info .item .num{
+  font-size: 40rpx;
+  color: #f7aa06;
+}
+
+.top5{
+  padding: 0 30rpx;
+}
+
+.top5 .title{
+  margin-bottom: 40rpx;
+  text-align: center;
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #666;
+}
+
+.top5 .table .thead,
+.top5 .table .tbody .item{
+  display: flex;
+  flex-direction: row;
+}
+
+.top5 .table .thead view{
+  flex: 1;
+  font-size: 34rpx;
+  text-align: center;
+  color: #ec8a09;
+}
+
+.top5 .table .tbody .item{
+  margin: 30rpx 0;
+  height: 80rpx;
+  color: #333;
+}
+
+.top5 .table .tbody .item view{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.top5 .table .tbody .item .rank{
+  font-size: 34rpx;
+  font-weight: bold;
+}
+
+.top5 .table .tbody .item view image{
+  width: 80rpx;
+  height: 80rpx;
+}

@@ -1,0 +1,36 @@
+<!--pages/trade/trade.wxml-->
+<view class="container">
+  <view class="header"></view>
+  <view class="content_wrapper">
+    <view class="trade_persons">
+      <view class="person">
+        <image class="userinfo_avatar" src="{{userInfo.avatarUrl}}" mode="cover" wx:if="{{userInfo.avatarUrl}}"></image>
+        <image 
+          class="userinfo_avatar"
+          src="/assets/images/login_default.svg"
+          mode="cover"
+          wx:if="{{!userInfo.avatarUrl}}">
+        </image>
+        <text class="userinfo_nickname">{{userInfo.nickName}}</text>
+      </view>
+      <view class="arrow">
+        <text class="icon ijiantou1"></text>
+      </view>
+      <view class="person">
+        <image class="userinfo_avatar" src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2471845590,913308006&fm=26&gp=0.jpg" mode="cover"></image>
+        <text class="userinfo_nickname">???</text>
+      </view>
+    </view>
+    <view class="input_form">
+      <view class="useful_points">
+        <text class="bold">可用积分：</text>
+        <text class="points">{{availablePoints}}</text>
+      </view>
+      <input type="text" value="{{tradePoints}}" placeholder="请输入转账积分数额" bindinput="tradePointsInput"></input>
+      <!-- <input type="text" value="{{reason}}" placeholder="请输入转账理由"></input> -->
+    </view>
+    <view class="btn_box">
+      <button class="confirm" bindtap="confirmTrade">确认转账</button>
+    </view>
+  </view>
+</view>
