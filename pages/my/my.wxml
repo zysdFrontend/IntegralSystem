@@ -1,0 +1,38 @@
+<!--pages/my/my.wxml-->
+<view class="container">
+  <view class="user_pic">
+    <image class="userinfo_avatar" src="{{userInfo.avatarUrl}}" mode="cover" wx:if="{{userInfo.avatarUrl}}"></image>
+    <image 
+      class="userinfo_avatar"
+      src="/assets/images/login_default.svg"
+      mode="cover"
+      wx:if="{{!userInfo.avatarUrl}}"
+      bindtap="toLogin">
+    </image>
+    <text class="userinfo_nickname">{{userInfo.nickName}}</text>
+    <text class="userinfo_nickname" wx:if="{{!userInfo.avatarUrl}}">点击头像登录</text>
+  </view>
+
+  <view class="points_info">
+    <view class="item">
+      <text class="num">{{availablePoints}}</text>
+      <text class="num" wx:if="{{!availablePoints && availablePoints != 0}}">--</text>
+      <text class="txt">可送盛赞</text>
+    </view>
+    <view class="item">
+      <text class="num">{{convertiblePoints}}</text>
+      <text class="num" wx:if="{{!convertiblePoints && convertiblePoints != 0}}">--</text>
+      <text class="txt">可兑盛赞</text>
+    </view>
+  </view>
+
+  <view class="qcode">
+    <image bindtap="previewPic" class="pic" src="{{qecodeUrl}}" bindload="handlePicLoad" hidden="{{defaultPicShow}}"></image>
+    <view class="default_pic" wx:if="{{defaultPicShow}}">
+      <loading-cmp />
+    </view>
+    <view class="btns_box" bindtap="toHistory">
+      <text>收赞记录</text>
+    </view>
+  </view>
+</view>

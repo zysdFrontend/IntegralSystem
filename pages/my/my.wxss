@@ -1,0 +1,106 @@
+/* pages/my/my.wxss */
+.container{
+  /* height: 100%;
+  z-index: -1; */
+}
+
+.user_pic{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 400rpx;
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.user_pic::after{
+  content: "";
+  width: 140%;
+  height: 200rpx;
+  position: absolute;
+  left: -20%;
+  top: 0;
+  z-index: -1;
+  border-radius: 0 0 50% 50%;
+  background: #facc01;
+}
+
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userinfo_avatar {
+  position: absolute;
+  top: 136rpx;
+  width: 146rpx;
+  height: 146rpx;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.userinfo_nickname {
+  position: absolute;
+  top: 290rpx;
+  color: #333;
+}
+
+.points_info{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 40rpx;
+}
+
+.points_info .item{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.points_info .item .num{
+  font-size: 40rpx;
+  color: #f7aa06;
+}
+
+.points_info .item .txt{
+  color: #aaa;
+  font-size: 28rpx;
+}
+
+.qcode{
+  width: 100%;
+  margin-bottom: 60rpx;
+  text-align: center;
+}
+
+.qcode .pic{
+  width: 500rpx;
+  height: 500rpx;
+}
+
+.qcode .default_pic{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 500rpx;
+  height: 500rpx;
+  margin: 0 auto;
+}
+
+.qcode .btns_box{
+  width: 500rpx;
+  height: 60rpx;
+  margin: 25rpx auto;
+  text-align: center;
+}
+
+.qcode .btns_box text{
+  color: #f7aa06;
+  font-weight: bold;
+}

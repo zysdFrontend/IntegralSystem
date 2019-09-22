@@ -68,9 +68,9 @@ App({
             }
           })
         } else {
-          wx.reLaunch({
+          /* wx.reLaunch({
             url: '/pages/authorize/authorize',
-          })
+          }) */
         }
       }
     })

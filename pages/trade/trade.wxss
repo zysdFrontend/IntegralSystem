@@ -10,6 +10,15 @@
   background-color: #facc01;
 }
 
+.header .icon_box{
+  padding: 20rpx 0 0 5%;
+}
+
+.header .icon_box .icon{
+  color: #444;
+  font-size: 44rpx;
+}
+
 .content_wrapper{
   position: absolute;
   top: 150rpx;

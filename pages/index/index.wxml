@@ -1,36 +1,38 @@
 <!--index.wxml-->
+<wxs src="../../utils/filter.wxs" module="util"/>
+
 <view class="container">
-  <button open-type="getUserInfo" bindgetuserinfo="getUserInfo"></button>
-  <view class="user_pic">
-    <image class="userinfo_avatar" src="{{userInfo.avatarUrl}}" mode="cover" wx:if="{{userInfo.avatarUrl}}"></image>
-    <image 
-      class="userinfo_avatar"
-      src="/assets/images/login_default.svg"
-      mode="cover"
-      wx:if="{{!userInfo.avatarUrl}}">
-    </image>
-    <text class="userinfo_nickname">{{userInfo.nickName}}</text>
-  </view>
-
-  <view class="points_info">
-    <view class="item">
-      <text class="num">{{availablePoints}}</text>
-      <text class="txt">可用积分</text>
-    </view>
-    <view class="item">
-      <text class="num">{{receivedPoints}}</text>
-      <text class="txt">收到积分</text>
-    </view>
-    <view class="item">
-      <text class="num">{{totalPoints}}</text>
-      <text class="txt">累计积分</text>
+  <view class="header">
+    <view bindtap="getScancode">
+      <text class="icon iiconfontsaoyisao"></text>
+      <text> 扫一扫，给小伙伴送个赞</text>
     </view>
   </view>
 
-  <view class="qcode">
-    <image bindtap="previewPic" class="pic" src="{{qecodeUrl}}"></image>
-    <view class="btns_box" bindtap="toHistory">
-      <text>收款记录</text>
+  <view class="info_list">
+    <view class="list_item" wx:for="{{transactionList}}" wx:key="{{item.transactionid}}">
+      <view class="user_avatar">
+        <image src="{{item.counterparty__img}}"></image>
+      </view>
+      <view class="content">
+        <view class="title">
+          <text class="name">{{item.counterparty__name}}</text>
+          获得
+          <text class="name">{{item.userid__name}}</text>
+          的盛赞
+        </view>
+        <view class="date">
+          <text>{{util.cutOutDate(item.transaction_time)}}</text>
+          <text class="count income">+{{item.credit || item.debit}}</text>盛赞
+        </view>
+        <view class="remark">
+          {{item.remark || '这位小伙伴很懒，什么也没留下~~'}}
+        </view>
+      </view>
     </view>
+  </view>
+
+  <view class="loading-box" hidden="{{!bottomLoading}}">
+    <loading-cmp width="15px" height="15px"/>
   </view>
 </view>

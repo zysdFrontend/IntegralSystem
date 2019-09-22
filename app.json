@@ -4,7 +4,9 @@
     "pages/trade_result/trade_result",
     "pages/trade/trade",
     "pages/authorize/authorize",
-    "pages/trade_history/trade_history"
+    "pages/trade_history/trade_history",
+    "pages/my/my",
+    "pages/rank/rank"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -12,5 +14,30 @@
     "navigationBarTitleText": "积分系统",
     "navigationBarTextStyle": "black"
   },
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+    "selectedColor": "#facc01",
+    "backgroundColor": "#ffffff",
+    "color": "#c7c7c7",
+    "list": [
+      {
+        "selectedIconPath": "/assets/images/home_selected.png",
+        "pagePath": "pages/index/index",
+        "text": "大厅",
+        "iconPath": "/assets/images/home_default.png"
+      },
+      {
+        "selectedIconPath": "/assets/images/rank_selected.png",
+        "pagePath": "pages/rank/rank",
+        "text": "排行榜",
+        "iconPath": "/assets/images/rank_default.png"
+      },
+      {
+        "selectedIconPath": "/assets/images/my_selected.png",
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "/assets/images/my_default.png"
+      }
+    ]
+  }
 }

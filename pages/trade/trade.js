@@ -13,14 +13,30 @@ Page({
   },
 
   onLoad: function (options) {
-    this.setData({
-      receiverOpenId: options.scene
-    })
+    let openid = wx.getStorageSync('openid');
+    if (!openid) {      // 没有微信id
+      wx.showModal({
+        title: '提示',
+        content: '未登录授权，无法使用',
+        confirmText: '授权',
+        success: function (res) {
+          if (res.confirm) {
+            wx.reLaunch({
+              url: '/pages/authorize/authorize'
+            });
+          }
+        }
+      });
+    } else {
+      this.setData({
+        receiverOpenId: options.scene
+      })
 
-    this.checkReceiver(this.data.receiverOpenId);
-    this.onGetUserInfo();
-    this.getAccountInfo();
-    this.getReceiverInfo();
+      this.checkReceiver(this.data.receiverOpenId);
+      this.onGetUserInfo();
+      this.getAccountInfo();
+      this.getReceiverInfo();
+    }
   },
 
   /**
@@ -120,6 +136,7 @@ Page({
    * 确认转账
    */
   confirmTrade (e) {
+    let _this = this;
     let openid = wx.getStorageSync('openid');
     let points = this.data.tradePoints;
     let receiverOpenId = this.data.receiverInfo.wxid;
@@ -131,6 +148,9 @@ Page({
         content: '是否确认转账？',
         confirmText: '确定',
         success: function (res) {
+          wx.showLoading({
+            title: '加载中'
+          });
           if (res.confirm) {
             wx.request({
               url: app.globalData.pathPrefix + '/transaction',
@@ -144,10 +164,22 @@ Page({
               success: (res) => {
                 console.log(res);
                 if (res.data.result) {
+                  _this.setData({
+                    tradePoints: ''
+                  });
                   wx.navigateTo({
                     url: '/pages/trade_result/trade_result?amount=' + points,
                   })
+                } else {
+                  wx.showToast({
+                    title: '转账失败',
+                    icon: 'none'
+                  })
                 }
+                wx.hideLoading();
+              },
+              fail: (err) => {
+                wx.hideLoading();
               }
             })
           } else if (res.cancel) {
@@ -163,24 +195,33 @@ Page({
    */
   checkInput() {
     // 正整数正则
-    const posPattern = /^\d+$/;
+    const posPattern = /^\+?[1-9][0-9]*$/;
 
     if (parseInt(this.data.tradePoints) > parseInt(this.data.availablePoints)) {
       // 转出积分大于可用积分
       wx.showToast({
-        title: '转出积分超出可用积分',
+        title: '已超出可用盛赞',
         icon: 'none'
-      })
+      });
       return 0;
     } else if (!posPattern.test(this.data.tradePoints)) {
       wx.showToast({
         title: '请输入一个合法的正整数',
         icon: 'none'
-      })
+      });
       return 0;
     } else {
       return 1;
     }
+  },
+
+  /**
+   * 返回主页
+   */
+  toIndex () {
+    wx.reLaunch({
+      url: '/pages/index/index',
+    })
   }
 
 })

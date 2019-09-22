@@ -1,0 +1,21 @@
+/**
+ * ===============
+ * 
+ * Wxml工具函数
+ * 
+ * ===============
+ */
+
+/**
+ * 截取日期时间中的日期部分
+ */
+var cutOutDate = function (dateStr) {
+  if (!dateStr) {
+    return;
+  }
+  return dateStr.split(' ')[0];
+}
+
+module.exports = {
+  cutOutDate: cutOutDate
+}

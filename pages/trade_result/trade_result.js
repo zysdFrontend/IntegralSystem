@@ -7,7 +7,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-    openid: wx.getStorageSync('openid'),  // openid
     tradePoints: '',         // 转出积分
     availablePoints: '',     // 可用积分
     sentPoints: '',          // 送出积分
@@ -32,11 +31,12 @@ Page({
    * 获取个人积分情况
    */
   getAccountInfo() {
+    let openid = wx.getStorageSync('openid');
     wx.request({
       url: app.globalData.pathPrefix + '/getaccountinfo',
       method: 'GET',
       data: {
-        id: this.data.openid
+        id: openid
       },
       success: (res) => {
         this.setData({
@@ -53,11 +53,12 @@ Page({
    * 获取前5排名数据
    */
   getRankInfo () {
+    let openid = wx.getStorageSync('openid');
     wx.request({
       url: app.globalData.pathPrefix + '/gettop5',
       method: 'GET',
       data: {
-        id: this.data.openid
+        id: openid
       },
       success: (res) => {
         console.log(res);
@@ -67,6 +68,15 @@ Page({
           });
         }
       }
+    })
+  },
+
+  /**
+   * 返回主页
+   */
+  toIndex() {
+    wx.navigateTo({
+      url: '/pages/index/index',
     })
   }
 

@@ -41,16 +41,16 @@
       <view class="header">
         <view class="left">
           <view>
-            <text class="color">转账日期</text>
+            <text class="color">日期</text>
             <text>{{item.transaction_time}}</text>
           </view>
           <view>
             <block wx:if="{{item.debit != 0}}">
-              <text class="color">转出积分</text>
+              <text class="color">送出盛赞</text>
               <text>{{item.debit}}</text>
             </block>
             <block wx:if="{{item.credit != 0}}">
-              <text class="color">收入积分</text>
+              <text class="color">收到盛赞</text>
               <text>{{item.credit}}</text>
             </block>
           </view>
@@ -61,15 +61,15 @@
       </view>
       <view class="body" hidden="{{!item.unfold}}">
         <view class="item">
-          <text class="color">交易对象</text>
+          <text class="color">送赞对象</text>
           <text>{{item.counterparty__name}}</text>
         </view>
         <view class="item">
-          <text class="color">红包余额</text>
+          <text class="color">剩余可送盛赞</text>
           <text>{{item.balance_redpack}}</text>
         </view>
         <view class="item">
-          <text class="color">累计金额</text>
+          <text class="color">累计盛赞</text>
           <text>{{item.balance}}</text>
         </view>
       </view>

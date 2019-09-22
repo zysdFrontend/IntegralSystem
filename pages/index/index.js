@@ -4,94 +4,156 @@ const app = getApp()
 
 Page({
   data: {
-    userInfo: {},            // 用户信息
-    canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    availablePoints: '',     // 可用积分
-    receivedPoints: '',      // 收到积分
-    totalPoints: '',         // 累计积分
-    qecodeUrl: ''
+    transactionList: [],      // 交易记录
+    currentPage: null,        // 当前页码
+    totalPages: null,         // 总页数
+    isPullDown: false,        // 下拉刷新
+    bottomLoading: false,     // 底部列表加载
   },
 
   onLoad: function () {
-    this.onGetUserInfo();
-    this.getAccountInfo();
-    this.getQRcodePic();
+    this.initTransactionList();
   },
 
   /**
-   * 读取用户信息
+   * 监听下拉刷新
    */
-  onGetUserInfo () {
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo
-      })
-    } else if (this.data.canIUse) {
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = res => {
-        this.setData({
-          userInfo: res.userInfo
-        })
+  onPullDownRefresh () {
+    this.setData({
+      isPullDown: true
+    });
+    this.initTransactionList();
+  },
+
+  /**
+   * 初始化交易记录列表
+   */
+  initTransactionList () {
+    wx.showLoading();
+    wx.request({
+      url: app.globalData.pathPrefix + '/transactionhistory',
+      method: 'GET',
+      data: {
+        page: 1
+      },
+      success: (res) => {
+        if (res.data.result) {
+          this.setData({
+            transactionList: res.data.para1,
+            currentPage: 1,
+            totalPages: res.data.totalpages
+          });
+        } else {
+          wx.showToast({
+            title: '列表数据获取失败',
+            icon: 'none'
+          });
+        }
+        if (this.data.isPullDown) {
+          this.setData({
+            isPullDown: false
+          });
+          wx.stopPullDownRefresh();
+        }
+        wx.hideLoading();
       }
+    })
+  },
+
+  /**
+   * 加载更多
+   */
+  loadMore () {
+    if (this.isLocked()) {  // 处于加锁状态
+      return;
+    }
+    if (this.hasMore()) {   // 是否有更多数据
+      this.setData({
+        bottomLoading: true
+      });
+      let nextPage = this.data.currentPage + 1;
+      wx.request({
+        url: app.globalData.pathPrefix + '/transactionhistory',
+        method: 'GET',
+        data: {
+          page: nextPage
+        },
+        success: (res) => {
+          if (res.data.result) {
+            let tempResList = this.data.transactionList.concat(res.data.para1);
+            this.setData({
+              transactionList: tempResList,
+              currentPage: nextPage,
+              totalPages: res.data.totalpages
+            });
+          } else {
+            wx.showToast({
+              title: '列表数据获取失败',
+              icon: 'none'
+            });
+          }
+          this.setData({
+            bottomLoading: false
+          });
+        }
+      })
     }
   },
 
   /**
-   * 获取个人积分详情
+   * 页面上拉触底事件的处理函数
    */
-  getAccountInfo () {
-    let openid = wx.getStorageSync('openid');
-    wx.request({
-      url: app.globalData.pathPrefix + '/getaccountinfo',
-      method: 'GET',
-      data: {
-        id: openid
-      },
+  onReachBottom () {
+    this.loadMore();
+  },
+
+  /**
+   * 判断是否处于加锁状态，防止加载更多请求频繁触发
+   */
+  isLocked () {
+    return this.data.bottomLoading ? true : false;
+  },
+
+  /**
+   * 加锁
+   */
+  lock () {
+    this.setData({
+      bottomLoading: true
+    });
+  },
+
+  /**
+   * 解锁
+   */
+  unLock () {
+    this.setData({
+      bottomLoading: false
+    });
+  },
+
+  /**
+   * 判断是否有更多数据
+   */
+  hasMore () {
+    if (this.data.currentPage < this.data.totalPages) {
+      return true;
+    } else {
+      return false;
+    }
+  },
+
+  /**
+   * 调用相机扫二维码
+   */
+  getScancode () {
+    wx.scanCode({
       success: (res) => {
         console.log(res);
-        this.setData({
-          availablePoints: res.data.para1,
-          receivedPoints: res.data.para3,
-          totalPoints: res.data.para2
+        wx.navigateTo({
+          url: '/' + res.path
         })
       }
-    })
-  },
-
-  /**
-   * 获取二维码图片
-   */
-  getQRcodePic () {
-    let openid = wx.getStorageSync('openid');
-    let url = app.globalData.pathPrefix + '/getqrcode?id=' + openid;
-    this.setData({
-      qecodeUrl: url
-    })
-  },
-
-  /**
-   * 预览图片
-   */
-  previewPic () {
-    let picUrl = this.data.qecodeUrl;
-    wx.previewImage({
-      urls: [picUrl],
-    })
-  },
-
-  toHistory () {
-    wx.navigateTo({
-      url: '/pages/trade_history/trade_history',
-    })
+    });
   }
-
-  /* getUserInfo: function(e) {
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
-    })
-  } */
 })

@@ -1,0 +1,6 @@
+<!--components/loading/index.wxml-->
+<view class="sk-three-bounce">
+  <view class="sk-child sk-bounce1" style="width: {{width || '20px'}};height: {{height || '20px'}}"></view>
+  <view class="sk-child sk-bounce2" style="width: {{width || '20px'}};height: {{height || '20px'}}"></view>
+  <view class="sk-child sk-bounce3" style="width: {{width || '20px'}};height: {{height || '20px'}}"></view>
+</view>

@@ -1,96 +1,77 @@
 /**index.wxss**/
 .container{
-  height: 100%;
-}
-
-.user_pic{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   width: 100%;
-  height: 400rpx;
-  position: relative;
-  z-index: -1;
-  overflow: hidden;
 }
 
-.user_pic::after{
-  content: "";
-  width: 140%;
-  height: 200rpx;
-  position: absolute;
-  left: -20%;
-  top: 0;
-  z-index: -1;
-  border-radius: 0 0 50% 50%;
-  background: #facc01;
+.header{
+  height: 70rpx;
+  text-align: center;
+  font-size: 28rpx;
+  line-height: 70rpx;
+  color: #fff;
+  background-color: #f3db03;
 }
 
-.userinfo {
+.info_list{
+  width: 100%;
+  border-top: 1px solid #eee;
+}
+
+.info_list .list_item{
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  border-bottom: 1px solid #eee;
 }
 
-.userinfo_avatar {
-  position: absolute;
-  top: 136rpx;
-  width: 146rpx;
-  height: 146rpx;
+.user_avatar{
+  padding: 40rpx;
+}
+
+.user_avatar image{
+  width: 100rpx;
+  height: 100rpx;
   border-radius: 50%;
-  z-index: 1;
 }
 
-.userinfo_nickname {
-  position: absolute;
-  top: 290rpx;
-  color: #333;
-}
-
-.points_info{
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  margin-bottom: 40rpx;
-}
-
-.points_info .item{
-  flex: 1;
+.list_item .content{
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  padding: 34rpx 0;
 }
 
-.points_info .item .num{
-  font-size: 40rpx;
-  color: #f7aa06;
-}
-
-.points_info .item .txt{
-  color: #aaa;
+.list_item .content .title{
+  margin-bottom: 10rpx;
+  padding-right: 30rpx;
+  color: #999;
   font-size: 28rpx;
 }
 
-.qcode{
-  width: 100%;
-  height: 620rpx;
-  text-align: center;
-}
-
-.qcode .pic{
-  width: 500rpx;
-  height: 500rpx;
-}
-
-.qcode .btns_box{
-  width: 500rpx;
-  height: 60rpx;
-  margin: 25rpx auto;
-  text-align: center;
-}
-
-.qcode .btns_box text{
-  color: #f7aa06;
+.list_item .content .title .name{
+  color: #333;
+  font-size: 30rpx;
   font-weight: bold;
+  margin: 0 6rpx;
+}
+
+.list_item .content .date{
+  margin-bottom: 20rpx;
+  color: #aaa;
+  font-size: 26rpx;
+}
+
+.list_item .content .date .count{
+  margin-left: 80rpx;
+  margin-right: 8rpx;
+  color: #facc01;
+}
+
+.list_item .content .remark{
+  padding-right: 60rpx;
+  font-size: 28rpx;
+  line-height: 42rpx;
+  color: #888;
+}
+
+.loading-box{
+  width: 80px;
+  margin: 30rpx auto;
 }
