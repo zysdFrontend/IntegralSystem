@@ -1,2 +1,64 @@
 <!--pages/rank/rank.wxml-->
+<view class="container">
+  <view class="top3_box">
+    <view class="item item_small">
+      <block>
+        <image class="avatar" src="{{top3Arr[1].img}}" wx:if="{{top3Arr[1].img}}"></image>
+        <image class="avatar" src="/assets/images/login_default.svg" wx:if="{{!top3Arr[1].img}}"></image>
+      </block>
+      <image class="rank" src="/assets/images/NO.2.svg"></image>
+      <text class="name">{{top3Arr[1].name}}</text>
+      <text class="points">{{top3Arr[1].balance5}} 盛赞</text>
+    </view>
+    <view class="item item_big">
+      <block>
+        <image class="avatar" src="{{top3Arr[0].img}}" wx:if="{{top3Arr[0].img}}"></image>
+        <image class="avatar" src="/assets/images/login_default.svg" wx:if="{{!top3Arr[0].img}}"></image>
+      </block>
+      <image class="rank" src="/assets/images/NO.1.svg"></image>
+      <text class="name">{{top3Arr[0].name}}</text>
+      <text class="points">{{top3Arr[0].balance5}} 盛赞</text>
+    </view>
+    <view class="item item_small">
+      <block>
+        <image class="avatar" src="{{top3Arr[2].img}}" wx:if="{{top3Arr[2].img}}"></image>
+        <image class="avatar" src="/assets/images/login_default.svg" wx:if="{{!top3Arr[2].img}}"></image>
+      </block>
+      <image class="rank" src="/assets/images/NO.3.svg"></image>
+      <text class="name">{{top3Arr[2].name}}</text>
+      <text class="points">{{top3Arr[2].balance5}} 盛赞</text>
+    </view>
+  </view>
 
+  <view class="my_rank">
+    <text class="me">我</text>
+    <view class="avatar">
+      <view class="avatar_box">
+        <image class="avatar" src="{{userInfo.avatarUrl}}" wx:if="{{userInfo.avatarUrl}}"></image>
+        <image class="avatar" src="/assets/images/login_default.svg" wx:if="{{!userInfo.avatarUrl}}"></image>
+      </view>
+      <text class="rank">{{myRank}}</text>
+    </view>
+    <view class="points">
+      <text class="count">{{userPointsInfo.para5}}</text>盛赞
+    </view>
+  </view>
+
+  <view class="others_rank">
+    <view class="rank_list">
+      <view class="list_item" wx:for="{{top4To10Arr}}" wx:key="{{item.wxid}}">
+        <text class="rank">{{index + 4}}</text>
+        <view class="avatar">
+          <view class="avatar_box">
+            <image class="avatar" src="{{item.img}}" wx:if="{{item.img}}"></image>
+            <image class="avatar" src="/assets/images/login_default.svg" wx:if="{{!item.img}}"></image>
+          </view>
+          <text class="name">{{item.name}}</text>
+        </view>
+        <view class="points">
+          <text class="count">{{item.balance5}}</text>盛赞
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

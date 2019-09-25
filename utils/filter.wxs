@@ -16,6 +16,18 @@ var cutOutDate = function (dateStr) {
   return dateStr.split(' ')[0];
 }
 
+/**
+ * 对头像图片url的处理
+ */
+var handleAvatarUrl = function (url) {
+  if (url.indexOf('https') >= 0) {
+    return url;
+  } else {
+    return '/assets/images/login_default.svg';
+  }
+}
+
 module.exports = {
-  cutOutDate: cutOutDate
+  cutOutDate: cutOutDate,
+  handleAvatarUrl: handleAvatarUrl
 }

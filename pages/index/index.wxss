@@ -14,7 +14,6 @@
 
 .info_list{
   width: 100%;
-  border-top: 1px solid #eee;
 }
 
 .info_list .list_item{
@@ -34,14 +33,15 @@
 
 .list_item .content{
   display: flex;
+  flex: 1;
   flex-direction: column;
-  padding: 34rpx 0;
+  padding: 34rpx 50rpx 34rpx 0;
 }
 
 .list_item .content .title{
   margin-bottom: 10rpx;
   padding-right: 30rpx;
-  color: #999;
+  color: #aaa;
   font-size: 28rpx;
 }
 
@@ -53,6 +53,8 @@
 }
 
 .list_item .content .date{
+  display: flex;
+  justify-content: space-between;
   margin-bottom: 20rpx;
   color: #aaa;
   font-size: 26rpx;

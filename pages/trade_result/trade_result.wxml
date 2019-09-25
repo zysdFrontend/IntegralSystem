@@ -40,8 +40,8 @@
       <view class="thead">
         <view>排名</view>
         <view>姓名</view>
-        <view>盛赞</view>
         <view>可用盛赞</view>
+        <view>累计盛赞</view>
       </view>
       <view class="tbody">
         <view class="item" wx:for="{{rankList}}" wx:key="index">
@@ -53,7 +53,7 @@
           </view>
           <view><text>{{item.name}}</text></view>
           <view><text>{{item.balance_redpack}}</text></view>
-          <view><text>{{item.balance}}</text></view>
+          <view><text>{{item.balance5}}</text></view>
         </view>
       </view>
     </view>

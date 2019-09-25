@@ -33,16 +33,32 @@
         <text class="userinfo_nickname receciver_name" wx:if="{{!receiverInfo.name}}">...</text>
       </view>
     </view>
-    <view class="input_form">
-      <view class="useful_points">
-        <text class="bold">可用盛赞：</text>
-        <text class="points">{{availablePoints}}</text>
+    <form report-submit bindsubmit="confirmTrade">
+      <view class="input_form">
+        <view class="useful_points">
+          <text class="bold">可送盛赞：</text>
+          <text class="points">{{availablePoints}}</text>
+        </view>
+        <input class="points_input" type="text" value="{{tradePoints}}" placeholder="请输入盛赞个数" bindinput="tradePointsInput"></input>
+        <textarea class="reason_textarea" value="{{reason}}" placeholder="请填入送赞理由" bindinput="tradeReasonInput"></textarea>
       </view>
-      <input type="text" value="{{tradePoints}}" placeholder="请输入盛赞个数" bindinput="tradePointsInput"></input>
-      <!-- <input type="text" value="{{reason}}" placeholder="请输入转账理由"></input> -->
-    </view>
-    <view class="btn_box">
-      <button class="confirm" bindtap="confirmTrade">确 认</button>
-    </view>
+
+      <view class="tag_box">
+        <view 
+          class="tag_item {{item.id === selectedTagId ? 'selected' : ''}}"
+          wx:for="{{tagsArr}}"
+          wx:key="{{item.id}}"
+          data-id="{{item.id}}"
+          bindtap="handleTagTap"
+          >
+          {{item.tag}}
+        </view>
+      </view>
+
+      <view class="btn_box">
+        <button class="confirm" form-type="submit">确 认</button>
+      </view>
+    </form>
+    
   </view>
 </view>

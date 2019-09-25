@@ -22,11 +22,13 @@
           的盛赞
         </view>
         <view class="date">
-          <text>{{util.cutOutDate(item.transaction_time)}}</text>
-          <text class="count income">+{{item.credit || item.debit}}</text>盛赞
+          <text>{{item.transaction_time}}</text>
+          <view>
+            <text class="count income">+{{item.credit || item.debit}}</text>盛赞
+          </view>
         </view>
         <view class="remark">
-          {{item.remark || '这位小伙伴很懒，什么也没留下~~'}}
+          {{item.remark || '这位小伙伴很懒，什么也没留下~~湖的地方地方'}}
         </view>
       </view>
     </view>

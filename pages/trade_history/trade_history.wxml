@@ -1,79 +1,38 @@
 <!--pages/trade_history/trade_history.wxml-->
-<!-- <view class="container">
-  <view class="history_list">
-    <view class="history_item" wx:for="{{historyList}}" wx:key="key">
-      <view class="date">
-        <text>{{item.transaction_time}}</text>
-      </view>
-      <view class="info">
-        <view class="item">
-          <text>支出积分：</text>
-          <text>{{item.debit}}</text>
-        </view>
-        <view class="item">
-          <text>收入积分：</text>
-          <text>{{item.credit}}</text>
-        </view>
-        <view class="item">
-          <text>红包余额：</text>
-          <text>{{item.balance_redpack}}</text>
-        </view>
-        <view class="item">
-          <text>累计金额：</text>
-          <text>{{item.balance}}</text>
-        </view>
-        <view class="item">
-          <text>转出方：</text>
-          <text>{{item.userid__name}}</text>
-        </view>
-        <view class="item">
-          <text>收入方：</text>
-          <text>{{item.counterparty__name}}</text>
-        </view>
-      </view>
-    </view>
-  </view>
-</view> -->
+<wxs src="../../utils/filter.wxs" module="util"/>
 
 <view class="container">
   <view class="history_list">
-    <view class="list_item" wx:for="{{historyList}}" wx:key="{{item.transactionid}}">
-      <view class="header">
-        <view class="left">
-          <view>
-            <text class="color">日期</text>
-            <text>{{item.transaction_time}}</text>
-          </view>
-          <view>
-            <block wx:if="{{item.debit != 0}}">
-              <text class="color">送出盛赞</text>
-              <text>{{item.debit}}</text>
-            </block>
-            <block wx:if="{{item.credit != 0}}">
-              <text class="color">收到盛赞</text>
-              <text>{{item.credit}}</text>
-            </block>
-          </view>
-        </view>
-        <view class="right" bindtap="onUnfold" data-item="{{item}}">
-          <text class="icon ijiantou {{item.unfold ? 'rotate' : ''}}"></text>
-        </view>
+    <view 
+      class="list_item"
+      wx:for="{{historyList}}"
+      wx:key="item.transactionid">
+      <view class="avatar_box">
+        <image src="/assets/images/login_default.svg" wx:if="{{!item.counterparty__img}}"></image>
+        <image src="{{util.handleAvatarUrl(item.counterparty__img)}}" wx:if="{{item.counterparty__img}}"></image>
       </view>
-      <view class="body" hidden="{{!item.unfold}}">
-        <view class="item">
-          <text class="color">送赞对象</text>
-          <text>{{item.counterparty__name}}</text>
+      <view class="content">
+        <view class="tradeName">
+          <text wx:if="{{item.credit > 0}}">收赞 - </text>
+          <text wx:if="{{item.debit > 0}}">送赞 - </text>
+          <text class="name">{{item.counterparty__name}}</text>
         </view>
-        <view class="item">
-          <text class="color">剩余可送盛赞</text>
-          <text>{{item.balance_redpack}}</text>
+        <view class="date">
+          {{item.transaction_time}}
         </view>
-        <view class="item">
-          <text class="color">累计盛赞</text>
-          <text>{{item.balance}}</text>
+        <view class="remark">
+          {{item.remark || '没有转账备注'}}
         </view>
+      </view> 
+      <view class="count">
+        <text class="receive" wx:if="{{item.credit > 0}}">+{{item.credit}}</text>
+        <text wx:if="{{item.debit > 0}}">-{{item.debit}}</text>
       </view>
     </view>
+  </view>
+
+  <view class="loading_box" hidden="{{!bottomLoading}}">
+    <loading-cmp width="15px" height="15px"/>
   </view>
   
   <!-- 无数据时显示内容 -->

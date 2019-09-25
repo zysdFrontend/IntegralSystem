@@ -10,6 +10,8 @@ Page({
     availablePoints: '',       // 可用积分
     tradePoints: '',           // 转账积分
     reason: '',                // 转账理由
+    tagsArr: [],               // 所有标签
+    selectedTagId: '',         // 选中的标签id
   },
 
   onLoad: function (options) {
@@ -36,6 +38,7 @@ Page({
       this.onGetUserInfo();
       this.getAccountInfo();
       this.getReceiverInfo();
+      this.getTags();
     }
   },
 
@@ -47,7 +50,7 @@ Page({
     if (openid === receiverOpenId) {    // 收款者是自己
       wx.showModal({
         title: '提示',
-        content: '不能向自己转账',
+        content: '不能赞赏自己',
         confirmText: '确定',
         showCancel: false,
         success: function (res) {
@@ -124,12 +127,58 @@ Page({
   },
 
   /**
+   * 获取标签
+   */
+  getTags () {
+    wx.request({
+      url: app.globalData.pathPrefix + '/getmarktag',
+      method: 'GET',
+      data: {
+
+      },
+      success: (res) => {
+        if (res.data.result) {
+          let tempArr = res.data.para1;
+          this.setData({
+            tagsArr: tempArr
+          });
+        }
+      }
+    })
+  },
+
+  /**
    * 绑定转账输入框的输入内容
    */
   tradePointsInput (e) {
     this.setData({
       tradePoints: e.detail.value
     })
+  },
+
+  /**
+   * 绑定转账理由的输入内容
+   */
+  tradeReasonInput (e) {
+    this.setData({
+      reason: e.detail.value
+    });
+  },
+
+  /**
+   * 标签点击事件
+   */
+  handleTagTap (e) {
+    let id = e.currentTarget.dataset.id;
+    if (id === this.data.selectedTagId) {   // 点击tag与当前选中tag相同
+      this.setData({
+        selectedTagId: ''
+      });
+    } else {      // 点击tag与当前选中tag不同
+      this.setData({
+        selectedTagId: id
+      });
+    }
   },
 
   /**
@@ -141,17 +190,21 @@ Page({
     let points = this.data.tradePoints;
     let receiverOpenId = this.data.receiverInfo.wxid;
     let remark = this.data.reason;
+    let selectedTagId = this.data.selectedTagId;
+
+    console.log(e.detail.formId)
+    let formId = e.detail.formId;
 
     if (this.checkInput() === 1) {
       wx.showModal({
         title: '提示',
-        content: '是否确认转账？',
+        content: '是否确认赞赏？',
         confirmText: '确定',
         success: function (res) {
-          wx.showLoading({
-            title: '加载中'
-          });
           if (res.confirm) {
+            wx.showLoading({
+              title: '加载中'
+            });
             wx.request({
               url: app.globalData.pathPrefix + '/transaction',
               method: 'GET',
@@ -159,10 +212,11 @@ Page({
                 id: openid,
                 amount: points,
                 receiver: receiverOpenId,   
-                remark: remark
+                remark: remark,
+                tag: selectedTagId,
+                formid: formId
               },
               success: (res) => {
-                console.log(res);
                 if (res.data.result) {
                   _this.setData({
                     tradePoints: ''

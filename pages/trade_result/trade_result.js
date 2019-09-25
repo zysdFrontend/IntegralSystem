@@ -75,7 +75,8 @@ Page({
    * 返回主页
    */
   toIndex() {
-    wx.navigateTo({
+    console.log('返回主页')
+    wx.reLaunch({
       url: '/pages/index/index',
     })
   }

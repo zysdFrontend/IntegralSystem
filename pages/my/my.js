@@ -6,10 +6,10 @@ Page({
   data: {
     userInfo: {},            // 用户信息
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    availablePoints: null,     // 可用积分
-    receivedPoints: null,      // 收到积分
-    totalPoints: null,         // 累计积分
-    convertiblePoints: null,   // 可兑积分
+    availablePoints: '',     // 可用积分
+    receivedPoints: '',      // 收到积分
+    totalPoints: '',         // 累计积分
+    convertiblePoints: '',   // 可兑积分
     qecodeUrl: '',
     defaultPicShow: true,      // 二维码加载动画显示
     isPullDown: false,         // 下拉刷新

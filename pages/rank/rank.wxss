@@ -1,1 +1,166 @@
 /* pages/rank/rank.wxss */
+.container{
+  background-color: #eee;
+}
+
+.top3_box{
+  display: flex;
+  margin-bottom: 20rpx;
+  padding: 100rpx 10%;
+  background-color: #fff;
+}
+
+.top3_box .item{
+  position: relative;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+}
+
+.top3_box .item .avatar{
+  border-radius: 50%;
+}
+
+.top3_box .item.item_small .avatar{
+  width: 120rpx;
+  height: 120rpx;
+}
+
+.top3_box .item.item_small .rank{
+  position: absolute;
+  top: 100rpx;
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.top3_box .item.item_big{
+  top: -20rpx;
+}
+
+.top3_box .item.item_big .avatar{
+  width: 140rpx;
+  height: 140rpx;
+}
+
+.top3_box .item.item_big .rank{
+  position: absolute;
+  top: 120rpx;
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.top3_box .item .name{
+  margin-top: 50rpx;
+  font-size: 28rpx;
+  line-height: 46rpx;
+  font-weight: bold;
+  color: #444;
+}
+
+.top3_box .item .points{
+  font-size: 28rpx;
+  line-height: 46rpx;
+  color: #999;
+}
+
+.my_rank{
+  display: flex;
+  align-items: center;
+  margin-bottom: 20rpx;
+  padding: 20rpx 0;
+  font-size: 28rpx;
+  color: #444;
+  background-color: #fff;
+}
+
+.my_rank .me{
+  width: 120rpx;
+  text-align: center;
+}
+
+.my_rank .avatar{
+  display: flex;
+  flex: 1;
+  align-items: center;
+}
+
+.my_rank .avatar .avatar_box{
+  width: 80rpx;
+  height: 80rpx;
+}
+
+.my_rank .avatar image{
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.my_rank .avatar .rank{
+  margin-left: 40rpx;
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #facc01;
+}
+
+.my_rank .points{
+  width: 180rpx;
+  text-align: center;
+}
+
+.my_rank .points .count{
+  margin-right: 10rpx;
+}
+
+.others_rank{
+  width: 100%;
+  height: 200rpx;
+  padding-top: 20rpx;
+  background-color: #fff;
+}
+
+.others_rank .list_item{
+  display: flex;
+  align-items: center;
+  margin-bottom: 30rpx;
+  padding: 20rpx 0;
+  font-size: 28rpx;
+  color: #444;
+  background-color: #fff;
+}
+
+.others_rank .list_item .rank{
+  width: 120rpx;
+  text-align: center;
+}
+
+.others_rank .list_item .avatar{
+  display: flex;
+  flex: 1;
+  align-items: center;
+}
+
+.others_rank .list_item .avatar .avatar_box{
+  width: 80rpx;
+  height: 80rpx;
+}
+
+.others_rank .list_item .avatar image{
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.others_rank .list_item .avatar .name{
+  margin-left: 40rpx;
+  font-size: 28rpx;
+}
+
+.others_rank .list_item .points{
+  width: 180rpx;
+  text-align: center;
+}
+
+.others_rank .list_item .points .count{
+  margin-right: 10rpx;
+}

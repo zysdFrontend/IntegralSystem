@@ -1,4 +1,8 @@
 {
-  "usingComponents": {},
-  "navigationBarTitleText": "收赞记录"
+  "usingComponents": {
+    "loading-cmp": "/components/loading/index"
+  },
+  "navigationBarTitleText": "盛赞账单",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark"
 }
