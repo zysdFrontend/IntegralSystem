@@ -15,6 +15,7 @@
         <image class="avatar" src="{{top3Arr[0].img}}" wx:if="{{top3Arr[0].img}}"></image>
         <image class="avatar" src="/assets/images/login_default.svg" wx:if="{{!top3Arr[0].img}}"></image>
       </block>
+      <image class="crown" src="/assets/images/crown.svg"></image>
       <image class="rank" src="/assets/images/NO.1.svg"></image>
       <text class="name">{{top3Arr[0].name}}</text>
       <text class="points">{{top3Arr[0].balance5}} 盛赞</text>

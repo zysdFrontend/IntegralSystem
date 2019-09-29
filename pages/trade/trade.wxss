@@ -15,7 +15,7 @@
 }
 
 .header .icon_box .icon{
-  color: #444;
+  color: #fff;
   font-size: 44rpx;
 }
 
@@ -33,7 +33,7 @@
 .trade_persons{
   display: flex;
   flex-direction: row;
-  margin: 80rpx 0;
+  margin: 80rpx 0 60rpx;
 }
 
 .trade_persons .person{
@@ -78,8 +78,8 @@
   width: 80%;
   height: 80rpx;
   margin: 0 auto 40rpx;
-  padding: 0 10rpx;
-  border: 1px solid #999;
+  padding: 20rpx;
+  border: 1px solid #ccc;
   border-radius: 5px;
   text-align: center;
 }
@@ -87,9 +87,9 @@
 .input_form .reason_textarea{
   width: 80%;
   height: 160rpx;
-  margin: 0 auto 80rpx;
-  padding: 10rpx;
-  border: 1px solid #999;
+  margin: 0 auto 50rpx;
+  padding: 20rpx;
+  border: 1px solid #ccc;
   border-radius: 5px;
 }
 
@@ -97,7 +97,7 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  width: 80%;
+  width: 87%;
   margin: 0 auto;
 }
 
@@ -133,12 +133,12 @@
 
 .btn_box{
   text-align: center;
-  margin-top: 100rpx;
+  margin-top: 60rpx;
   margin-bottom: 40rpx;
 }
 
 .btn_box .confirm{
-  width: 70%;
+  width: 87%;
   border: none;
   background-color: #facc01;
   color: #fff;

@@ -1,4 +1,8 @@
 // pages/rank/rank.js
+import {
+  userInfoChecked
+} from '../../utils/util.js';
+
 const app = getApp();
 
 Page({
@@ -20,24 +24,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let openid = wx.getStorageSync('openid');
-    if (!openid) {    // 没有openid
-      wx.showModal({
-        title: '提示',
-        content: '未登录授权，无法使用',
-        confirmText: '授权',
-        success: function (res) {
-          if (res.confirm) {
-            wx.reLaunch({
-              url: '/pages/authorize/authorize'
-            });
-          }
-        }
-      });
-    } else {
-      this.getRankInfo();
-      this.onGetUserInfo();
-    }
+    let _this = this;
+    userInfoChecked(function(){
+      _this.getRankInfo();
+      _this.onGetUserInfo();
+    });
   },
 
   /**
@@ -126,4 +117,13 @@ Page({
     }
   },
 
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+    return {
+      title: '争先创优，追赶超越，快来看看你的排名！',
+      path: '/pages/rank/rank'
+    }
+  }
 })

@@ -1,0 +1,4 @@
+<!--pages/test/test.wxml-->
+<view class="container">
+  <modal></modal>
+</view>

@@ -1,0 +1,14 @@
+<!--components/modal/index.wxml-->
+<view class="mask">
+  <view class="modalDlg">
+    <view class="title">
+
+    </view>
+    <view class="content">
+
+    </view>
+    <view class="btns">
+      
+    </view>
+  </view>
+</view>

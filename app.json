@@ -6,7 +6,8 @@
     "pages/authorize/authorize",
     "pages/trade_history/trade_history",
     "pages/my/my",
-    "pages/rank/rank"
+    "pages/rank/rank",
+    "pages/test/test"
   ],
   "window": {
     "backgroundTextStyle": "light",

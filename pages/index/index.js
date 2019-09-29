@@ -155,5 +155,15 @@ Page({
         })
       }
     });
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+    return {
+      title: '全城盛赞，还不赶紧加入？',
+      path: '/pages/index/index'
+    }
   }
 })

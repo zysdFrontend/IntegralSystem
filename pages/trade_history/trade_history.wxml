@@ -13,12 +13,13 @@
       </view>
       <view class="content">
         <view class="tradeName">
-          <text wx:if="{{item.credit > 0}}">收赞 - </text>
-          <text wx:if="{{item.debit > 0}}">送赞 - </text>
           <text class="name">{{item.counterparty__name}}</text>
         </view>
         <view class="date">
           {{item.transaction_time}}
+        </view>
+        <view class="tag" wx:if="item.tagid__tag">
+          #{{item.tagid__tag}}#
         </view>
         <view class="remark">
           {{item.remark || '没有转账备注'}}

@@ -18,7 +18,6 @@
 
 .info_list .list_item{
   display: flex;
-  border-bottom: 1px solid #eee;
 }
 
 .user_avatar{
@@ -26,8 +25,8 @@
 }
 
 .user_avatar image{
-  width: 100rpx;
-  height: 100rpx;
+  width: 90rpx;
+  height: 90rpx;
   border-radius: 50%;
 }
 
@@ -35,7 +34,7 @@
   display: flex;
   flex: 1;
   flex-direction: column;
-  padding: 34rpx 50rpx 34rpx 0;
+  padding: 34rpx 40rpx 0 0;
 }
 
 .list_item .content .title{
@@ -55,9 +54,14 @@
 .list_item .content .date{
   display: flex;
   justify-content: space-between;
-  margin-bottom: 20rpx;
+  align-items: center;
+  margin-bottom: 10rpx;
   color: #aaa;
   font-size: 26rpx;
+}
+
+.list_item .content .date .date_text{
+  font-size: 22rpx;
 }
 
 .list_item .content .date .count{
@@ -66,11 +70,18 @@
   color: #facc01;
 }
 
+.list_item .content .tag{
+  margin-bottom: 20rpx;
+  font-size: 22rpx;
+  color: #aaa;
+}
+
 .list_item .content .remark{
-  padding-right: 60rpx;
-  font-size: 28rpx;
+  padding-bottom: 34rpx;
+  font-size: 26rpx;
   line-height: 42rpx;
   color: #888;
+  border-bottom: 1px solid #eee;
 }
 
 .loading-box{

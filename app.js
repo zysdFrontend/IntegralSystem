@@ -37,7 +37,7 @@ App({
   login () {
     console.log('登录');
     if (this.globalData.jsCode) { // 已有jsCode
-      
+      console.log('已经有jsCode');
     } else {    // 没有jsCode
       wx.login({
         success: res => {

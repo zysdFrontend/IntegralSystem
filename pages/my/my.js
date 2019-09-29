@@ -1,5 +1,9 @@
 // pages/my/my.js
 //获取应用实例
+import {
+  userInfoCheckedMy
+} from '../../utils/util.js';
+
 const app = getApp()
 
 Page({
@@ -16,8 +20,13 @@ Page({
   },
 
   onLoad: function () {
-    this.onGetUserInfo();
-    this.getAccountInfo();
+    let _this = this;
+
+    userInfoCheckedMy(function(){
+      _this.onGetUserInfo();
+      _this.getAccountInfo();
+    });
+
     this.getQRcodePic();
   },
 
@@ -123,10 +132,22 @@ Page({
     })
   },
 
+  /**
+   * 跳转到收赞记录页
+   */
   toHistory() {
-    wx.navigateTo({
-      url: '/pages/trade_history/trade_history',
-    })
+    let openid = wx.getStorageSync('openid');
+    if (!openid || !app.globalData.userInfo) {
+      wx.showToast({
+        title: '您还未登录，无法查看收赞记录',
+        icon: 'none',
+        duration: 3000
+      });
+    } else {
+      wx.navigateTo({
+        url: '/pages/trade_history/trade_history',
+      });
+    }
   },
 
   /**
@@ -147,4 +168,17 @@ Page({
       hasUserInfo: true
     })
   } */
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+    let openid = wx.getStorageSync('openid');
+    let name = this.data.userInfo.nickName;
+    return {
+      title: '你的好友' + name + '好棒噢 ！给Ta赞！',
+      path: '/pages/trade/trade?scene=' + openid,
+      imageUrl: '/assets/images/share.jpg'
+    }
+  }
 })

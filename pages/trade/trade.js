@@ -1,4 +1,8 @@
 // pages/trade/trade.js
+import {
+  userInfoChecked
+} from '../../utils/util.js';
+
 const app = getApp();
 
 Page({
@@ -15,31 +19,25 @@ Page({
   },
 
   onLoad: function (options) {
-    let openid = wx.getStorageSync('openid');
-    if (!openid) {      // 没有微信id
-      wx.showModal({
-        title: '提示',
-        content: '未登录授权，无法使用',
-        confirmText: '授权',
-        success: function (res) {
-          if (res.confirm) {
-            wx.reLaunch({
-              url: '/pages/authorize/authorize'
-            });
-          }
-        }
-      });
-    } else {
-      this.setData({
+    let _this = this;
+    userInfoChecked(function(){
+      _this.setData({
         receiverOpenId: options.scene
       })
 
-      this.checkReceiver(this.data.receiverOpenId);
-      this.onGetUserInfo();
-      this.getAccountInfo();
-      this.getReceiverInfo();
-      this.getTags();
-    }
+      _this.checkReceiver(_this.data.receiverOpenId);
+      _this.onGetUserInfo();
+      _this.getAccountInfo();
+      _this.getReceiverInfo();
+      _this.getTags();
+    });
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+    this.getAccountInfo();
   },
 
   /**
@@ -121,7 +119,8 @@ Page({
       success: (res) => {
         this.setData({
           availablePoints: res.data.para1
-        })
+        });
+
       }
     })
   },
@@ -196,6 +195,7 @@ Page({
     let formId = e.detail.formId;
 
     if (this.checkInput() === 1) {
+      console.log('输入校验通过');
       wx.showModal({
         title: '提示',
         content: '是否确认赞赏？',
@@ -219,7 +219,9 @@ Page({
               success: (res) => {
                 if (res.data.result) {
                   _this.setData({
-                    tradePoints: ''
+                    tradePoints: '',
+                    reason: '',
+                    selectedTagId: ''
                   });
                   wx.navigateTo({
                     url: '/pages/trade_result/trade_result?amount=' + points,
@@ -261,6 +263,12 @@ Page({
     } else if (!posPattern.test(this.data.tradePoints)) {
       wx.showToast({
         title: '请输入一个合法的正整数',
+        icon: 'none'
+      });
+      return 0;
+    } else if (this.data.selectedTagId === '') {
+      wx.showToast({
+        title: '请选择送赞分类',
         icon: 'none'
       });
       return 0;

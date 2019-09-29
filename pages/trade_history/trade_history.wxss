@@ -6,7 +6,7 @@
 .list_item{
   width: 100%;
   display: flex;
-  padding: 35rpx 0 40rpx;
+  padding: 35rpx 0;
   border-bottom: 1px solid #eee;
 }
 
@@ -40,9 +40,15 @@
 }
 
 .list_item .content .date{
-  margin-bottom: 6rpx;
-  font-size: 28rpx;
-  color: #999;
+  margin-bottom: 10rpx;
+  font-size: 24rpx;
+  color: #aaa;
+}
+
+.list_item .content .tag{
+  margin-bottom: 20rpx;
+  font-size: 24rpx;
+  color: #aaa;
 }
 
 .list_item .content .remark{
@@ -53,11 +59,11 @@
   width: 160rpx;
   text-align: center;
   font-size: 38rpx;
-  color: #d40d0d;
+  color: #089949;
 }
 
 .list_item .count .receive{
-  color: #facc01;
+  color: #d40d0d;
 }
 
 .loading_box{

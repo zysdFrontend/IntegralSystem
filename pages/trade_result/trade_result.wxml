@@ -35,7 +35,7 @@
   </view>
 
   <view class="top5">
-    <view class="title">盛赞榜Top5</view>
+    <view class="title">盛赞榜Top10</view>
     <view class="table">
       <view class="thead">
         <view>排名</view>

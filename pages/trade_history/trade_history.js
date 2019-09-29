@@ -1,4 +1,8 @@
 // pages/trade_history/trade_history.js
+import {
+  userInfoChecked
+} from '../../utils/util.js';
+
 const app = getApp();
 
 Page({
@@ -18,23 +22,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let openid = wx.getStorageSync('openid');
-    if (!openid) {    // 没有openid
-      wx.showModal({
-        title: '提示',
-        content: '未登录授权，无法使用',
-        confirmText: '授权',
-        success: function (res) {
-          if (res.confirm) {
-            wx.reLaunch({
-              url: '/pages/authorize/authorize'
-            });
-          }
-        }
-      });
-    } else {
-      this.getHistoryList();
-    }
+    let _this = this;
+    userInfoChecked(function(){
+      _this.getHistoryList();
+    });
   },
 
   /**
