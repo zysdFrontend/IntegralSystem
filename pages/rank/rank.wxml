@@ -3,7 +3,7 @@
   <view class="top3_box">
     <view class="item item_small">
       <block>
-        <image class="avatar" src="{{top3Arr[1].img}}" wx:if="{{top3Arr[1].img}}"></image>
+        <image class="avatar" src="{{top3Arr[1].img}}" wx:if="{{top3Arr[1].img}}" data-id="{{top3Arr[1].wxid}}" bindtap="toTrade"></image>
         <image class="avatar" src="/assets/images/login_default.svg" wx:if="{{!top3Arr[1].img}}"></image>
       </block>
       <image class="rank" src="/assets/images/NO.2.svg"></image>
@@ -12,7 +12,7 @@
     </view>
     <view class="item item_big">
       <block>
-        <image class="avatar" src="{{top3Arr[0].img}}" wx:if="{{top3Arr[0].img}}"></image>
+        <image class="avatar" src="{{top3Arr[0].img}}" wx:if="{{top3Arr[0].img}}" data-id="{{top3Arr[0].wxid}}" bindtap="toTrade"></image>
         <image class="avatar" src="/assets/images/login_default.svg" wx:if="{{!top3Arr[0].img}}"></image>
       </block>
       <image class="crown" src="/assets/images/crown.svg"></image>
@@ -22,7 +22,7 @@
     </view>
     <view class="item item_small">
       <block>
-        <image class="avatar" src="{{top3Arr[2].img}}" wx:if="{{top3Arr[2].img}}"></image>
+        <image class="avatar" src="{{top3Arr[2].img}}" wx:if="{{top3Arr[2].img}}" data-id="{{top3Arr[2].wxid}}" bindtap="toTrade"></image>
         <image class="avatar" src="/assets/images/login_default.svg" wx:if="{{!top3Arr[2].img}}"></image>
       </block>
       <image class="rank" src="/assets/images/NO.3.svg"></image>
@@ -51,7 +51,7 @@
         <text class="rank">{{index + 4}}</text>
         <view class="avatar">
           <view class="avatar_box">
-            <image class="avatar" src="{{item.img}}" wx:if="{{item.img}}"></image>
+            <image class="avatar" src="{{item.img}}" wx:if="{{item.img}}" data-id="{{item.wxid}}" bindtap="toTrade"></image>
             <image class="avatar" src="/assets/images/login_default.svg" wx:if="{{!item.img}}"></image>
           </view>
           <text class="name">{{item.name}}</text>

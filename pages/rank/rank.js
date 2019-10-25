@@ -125,5 +125,18 @@ Page({
       title: '争先创优，追赶超越，快来看看你的排名！',
       path: '/pages/rank/rank'
     }
+  },
+
+  /**
+   * 跳转到转账页
+   */
+  toTrade (e) {
+    let openid = e.currentTarget.dataset.id;
+    if (openid === '-1') {    // 系统
+      return;
+    }
+    wx.navigateTo({
+      url: '/pages/trade/trade?scene=' + openid,
+    })
   }
 })

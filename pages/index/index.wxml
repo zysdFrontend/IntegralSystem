@@ -3,22 +3,43 @@
 
 <view class="container">
   <view class="header">
-    <view bindtap="getScancode">
+    <!-- <view bindtap="getScancode">
       <text class="icon iiconfontsaoyisao"></text>
       <text> 扫一扫，给小伙伴送个赞</text>
+    </view> -->
+    <!-- <view class="header_item" bindtap="getScancode">
+      <text class="icon iiconfontsaoyisao"></text>
+      <text>扫一扫</text>
+    </view>
+    <view class="header_item">
+      <text class="icon ijiedianhuiyuanmingdan"></text>
+      <text>通讯录</text>
+    </view> -->
+    <view class="img">
+      <image src="https://jf.join-share.net/static/banner.jpg"></image>
+    </view>
+    <view class="btns">
+      <view class="item">
+        <text class="icon iiconfontsaoyisao" bindtap="getScancode"></text>
+        <text bindtap="getScancode">扫一扫</text>
+      </view>
+      <view class="item" bindtap="toNameList">
+        <text class="icon izan"></text>
+        <text>送赞</text>
+      </view>
     </view>
   </view>
 
   <view class="info_list">
     <view class="list_item" wx:for="{{transactionList}}" wx:key="{{item.transactionid}}">
       <view class="user_avatar">
-        <image src="{{item.counterparty__img}}"></image>
+        <image src="{{item.counterparty__img}}" data-id="{{item.counterparty__wxid}}" bindtap="toTrade"></image>
       </view>
       <view class="content">
         <view class="title">
-          <text class="name">{{item.counterparty__name}}</text>
+          <text class="name" data-id="{{item.counterparty__wxid}}" bindtap="toTrade">{{item.counterparty__name}}</text>
           获得
-          <text class="name">{{item.userid__name}}</text>
+          <text class="name" data-id="{{item.userid__wxid}}" bindtap="toTrade">{{item.userid__name}}</text>
           的盛赞
         </view>
         <view class="date">

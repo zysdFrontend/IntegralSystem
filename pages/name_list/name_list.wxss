@@ -1,0 +1,29 @@
+/* pages/name_list/name_list.wxss */
+.header{
+  padding: 30rpx;
+  background-color: #eee;
+  color: #333;
+}
+
+.name_list .item{
+  padding: 30rpx;
+  border-bottom: 1px solid #eee;
+}
+
+.name_list .item image{
+  display: inline-block;
+  vertical-align: middle;
+  width: 80rpx;
+  height: 80rpx;
+  margin-right: 28rpx;
+  border-radius: 50%;
+}
+
+.name_list .item .name{
+  display: inline-block;
+  vertical-align: middle;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 28rpx;
+  color: #333;
+}

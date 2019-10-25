@@ -195,6 +195,9 @@ Page({
     let formId = e.detail.formId;
 
     if (this.checkInput() === 1) {
+      if (this.checkMostPoints() === 0) {
+        return;
+      }
       console.log('输入校验通过');
       wx.showModal({
         title: '提示',
@@ -247,7 +250,7 @@ Page({
   },
 
   /**
-   * 积分转账校验
+   * 积分转账校验 
    */
   checkInput() {
     // 正整数正则
@@ -266,6 +269,12 @@ Page({
         icon: 'none'
       });
       return 0;
+    } else if (this.data.reason === '') {
+      wx.showToast({
+        title: '请填写送赞理由',
+        icon: 'none'
+      });
+      return 0;
     } else if (this.data.selectedTagId === '') {
       wx.showToast({
         title: '请选择送赞分类',
@@ -274,6 +283,31 @@ Page({
       return 0;
     } else {
       return 1;
+    }
+  },
+
+  /**
+   * 根据送赞类别判断送赞上限
+   */
+  checkMostPoints () {
+    let _this = this;
+    let currentSelectedTagId = this.data.selectedTagId;
+    let tradePoints = this.data.tradePoints;
+    for (let i = 0; i < this.data.tagsArr.length; i++) {
+      if (currentSelectedTagId === this.data.tagsArr[i].id) {
+        if (parseInt(this.data.tagsArr[i].top) === 0) {
+          return 1;
+        }
+        if (tradePoints > this.data.tagsArr[i].top) {
+          wx.showToast({
+            title: '该类别送赞数量不能超过' + _this.data.tagsArr[i].top,
+            icon: 'none'
+          });
+          return 0;
+        } else {
+          return 1;
+        }
+      }
     }
   },
 

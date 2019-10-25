@@ -165,5 +165,27 @@ Page({
       title: '全城盛赞，还不赶紧加入？',
       path: '/pages/index/index'
     }
+  },
+
+  /**
+   * 跳转到转账页
+   */
+  toTrade (e) {
+    let openid = e.currentTarget.dataset.id;
+    if (openid === '-1') {    // 系统
+      return;
+    }
+    wx.navigateTo({
+      url: '/pages/trade/trade?scene=' + openid,
+    })
+  },
+
+  /**
+   * 跳转到送赞人员列表页
+   */
+  toNameList () {
+    wx.navigateTo({
+      url: '/pages/name_list/name_list',
+    });
   }
 })

@@ -1,0 +1,18 @@
+<!--pages/name_list/name_list.wxml-->
+<view class="container">
+  <view class="header">
+    选择送赞对象    
+  </view>
+  <view class="name_list">
+    <view class="item" 
+      wx:for="{{personList}}"
+      wx:key="{{item.wxid}}"
+      data-id="{{item.wxid}}"
+      bindtap="toTrade"
+    >
+      <image src="/assets/images/login_default.svg" wx:if="{{!item.img}}"></image>
+      <image src="{{item.img}}" wx:if="{{item.img}}"></image>
+      <text class="name">{{item.name}}</text>
+    </view>
+  </view>
+</view>

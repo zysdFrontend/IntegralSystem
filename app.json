@@ -7,7 +7,8 @@
     "pages/trade_history/trade_history",
     "pages/my/my",
     "pages/rank/rank",
-    "pages/test/test"
+    "pages/test/test",
+    "pages/name_list/name_list"
   ],
   "window": {
     "backgroundTextStyle": "light",

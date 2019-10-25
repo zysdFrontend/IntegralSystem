@@ -168,4 +168,17 @@ Page({
     }
   },
 
+  /**
+   * 跳转到转账页
+   */
+  toTrade(e) {
+    let openid = e.currentTarget.dataset.id;
+    if (openid === '-1') {    // 系统
+      return;
+    }
+    wx.navigateTo({
+      url: '/pages/trade/trade?scene=' + openid,
+    })
+  }
+
 })

@@ -9,7 +9,7 @@
       wx:key="item.transactionid">
       <view class="avatar_box">
         <image src="/assets/images/login_default.svg" wx:if="{{!item.counterparty__img}}"></image>
-        <image src="{{util.handleAvatarUrl(item.counterparty__img)}}" wx:if="{{item.counterparty__img}}"></image>
+        <image src="{{util.handleAvatarUrl(item.counterparty__img)}}" wx:if="{{item.counterparty__img}}" data-id="{{item.counterparty__wxid}}" bindtap="toTrade"></image>
       </view>
       <view class="content">
         <view class="tradeName">

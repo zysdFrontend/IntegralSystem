@@ -13,6 +13,13 @@
       "unicode_decimal": 58881
     },
     {
+      "icon_id": "432638",
+      "name": "节点-会员名单",
+      "font_class": "jiedianhuiyuanmingdan",
+      "unicode": "e6ff",
+      "unicode_decimal": 59135
+    },
+    {
       "icon_id": "435934",
       "name": "排行榜",
       "font_class": "paixingbang",
@@ -81,6 +88,13 @@
       "font_class": "wode",
       "unicode": "e61f",
       "unicode_decimal": 58911
+    },
+    {
+      "icon_id": "8406813",
+      "name": "赞",
+      "font_class": "zan",
+      "unicode": "e600",
+      "unicode_decimal": 58880
     }
   ]
 }
