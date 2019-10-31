@@ -19,11 +19,11 @@
       <image src="https://jf.join-share.net/static/banner.jpg"></image>
     </view>
     <view class="btns">
-      <view class="item">
+      <view class="item scanBtn">
         <text class="icon iiconfontsaoyisao" bindtap="getScancode"></text>
         <text bindtap="getScancode">扫一扫</text>
       </view>
-      <view class="item" bindtap="toNameList">
+      <view class="item sendPraiseBtn" bindtap="toNameList">
         <text class="icon izan"></text>
         <text>送赞</text>
       </view>
@@ -33,7 +33,7 @@
   <view class="info_list">
     <view class="list_item" wx:for="{{transactionList}}" wx:key="{{item.transactionid}}">
       <view class="user_avatar">
-        <image src="{{item.counterparty__img}}" data-id="{{item.counterparty__wxid}}" bindtap="toTrade"></image>
+        <image class="avatar" src="{{item.counterparty__img}}" data-id="{{item.counterparty__wxid}}" bindtap="toTrade"></image>
       </view>
       <view class="content">
         <view class="title">
