@@ -25,7 +25,7 @@
   top: 0;
   z-index: -1;
   border-radius: 0 0 50% 50%;
-  background: #facc01;
+  background: #ff1c33;
 }
 
 .userinfo {
@@ -63,7 +63,7 @@
 
 .points_info .item .num{
   font-size: 40rpx;
-  color: #f7aa06;
+  color: #ff1c33;
 }
 
 .points_info .item .txt{
@@ -99,6 +99,6 @@
 }
 
 .qcode .btns_box text{
-  color: #f7aa06;
+  color: #ff1c33;
   font-weight: bold;
 }

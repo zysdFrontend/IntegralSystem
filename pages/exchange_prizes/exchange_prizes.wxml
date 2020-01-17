@@ -1,0 +1,28 @@
+<!--pages/exchange_prizes/exchange_prizes.wxml-->
+<view class="container">
+  <view class="header">
+    <view class="icon_box">
+      <text class="icon izhuye" bindtap="toIndex"></text>
+    </view>
+  </view>
+  <view class="content_wrapper">
+    <view class="remainder_outer1">
+      <view class="remainder_outer2">
+        <view class="text">可兑盛赞</view>
+        <view class="num">{{convertiblePoints}}</view>
+      </view>
+    </view>
+    <form report-submit bindsubmit="confirmTrade">
+      <view class="trade_box">
+        <view class="input_box">
+          <input class="input" type="number" value="{{tradePoints}}" bindinput="tradePointsInput" placeholder="请输入盛赞个数"
+            placeholder-style="color:#999;font-size:28rpx;"
+          ></input>
+        </view>
+        <view class="confirm_btn">
+          <button class="confirm" form-type="submit">确 认</button>
+        </view>
+      </view>
+    </form>
+  </view>
+</view>

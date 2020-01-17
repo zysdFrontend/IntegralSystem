@@ -1,0 +1,47 @@
+/* pages/exchange_result/exchange_result.wxss */
+page{
+  height: 100%;
+}
+
+.container{
+  height: 100%;
+}
+
+.result_text{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 25%;
+  color: #444;
+}
+
+.result_text .success_icon{
+  width: 200rpx;
+  height: 200rpx;
+  margin-bottom: 20rpx;
+}
+
+.result_text .text{
+  margin-bottom: 24rpx;
+  font-size: 36rpx;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.result_text .num{
+  margin-bottom: 40rpx;
+  font-size: 68rpx;
+}
+
+.finish_btn{
+  text-align: center;
+}
+
+.finish_btn .btn{
+  width: 88%;
+  height: 80rpx;
+  font-size: 30rpx;
+  /* background-color: #1afa29;
+  color: #fff; */
+  letter-spacing: 1px;
+}

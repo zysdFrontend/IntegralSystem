@@ -230,12 +230,16 @@ Page({
                     url: '/pages/trade_result/trade_result?amount=' + points,
                   })
                 } else {
+                  wx.hideLoading();
                   wx.showToast({
                     title: '转账失败',
-                    icon: 'none'
-                  })
+                    icon: 'none',
+                    duration: 2000
+                  });
                 }
-                wx.hideLoading();
+                /* setTimeout(function() {
+                  wx.hideLoading();
+                }, 2000); */
               },
               fail: (err) => {
                 wx.hideLoading();

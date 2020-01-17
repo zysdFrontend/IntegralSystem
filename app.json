@@ -8,7 +8,9 @@
     "pages/my/my",
     "pages/rank/rank",
     "pages/test/test",
-    "pages/name_list/name_list"
+    "pages/name_list/name_list",
+    "pages/exchange_prizes/exchange_prizes",
+    "pages/exchange_result/exchange_result"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -18,24 +20,24 @@
   },
   "sitemapLocation": "sitemap.json",
   "tabBar": {
-    "selectedColor": "#facc01",
+    "selectedColor": "#ff1c33",
     "backgroundColor": "#ffffff",
     "color": "#c7c7c7",
     "list": [
       {
-        "selectedIconPath": "/assets/images/home_selected.png",
+        "selectedIconPath": "/assets/images/home_selected1.png",
         "pagePath": "pages/index/index",
         "text": "大厅",
         "iconPath": "/assets/images/home_default.png"
       },
       {
-        "selectedIconPath": "/assets/images/rank_selected.png",
+        "selectedIconPath": "/assets/images/rank_selected1.png",
         "pagePath": "pages/rank/rank",
         "text": "排行榜",
         "iconPath": "/assets/images/rank_default.png"
       },
       {
-        "selectedIconPath": "/assets/images/my_selected.png",
+        "selectedIconPath": "/assets/images/my_selected1.png",
         "pagePath": "pages/my/my",
         "text": "我的",
         "iconPath": "/assets/images/my_default.png"

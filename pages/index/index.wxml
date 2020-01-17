@@ -16,7 +16,7 @@
       <text>通讯录</text>
     </view> -->
     <view class="img">
-      <image src="https://jf.join-share.net/static/banner.jpg"></image>
+      <image src="{{bannerImg}}"></image>
     </view>
     <view class="btns">
       <view class="item">
@@ -31,7 +31,10 @@
   </view>
 
   <view class="info_list">
-    <view class="list_item" wx:for="{{transactionList}}" wx:key="{{item.transactionid}}">
+    <view class="list_item" 
+      wx:for="{{transactionList}}" wx:key="{{item.transactionid}}"
+      wx:if="{{item.counterparty__name !== '兑盛赞'}}"
+    >
       <view class="user_avatar">
         <image src="{{item.counterparty__img}}" data-id="{{item.counterparty__wxid}}" bindtap="toTrade"></image>
       </view>

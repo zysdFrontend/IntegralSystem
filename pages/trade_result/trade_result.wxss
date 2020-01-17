@@ -13,7 +13,7 @@
   height: 400rpx;
   z-index: 1;
   overflow: hidden;
-  background-color: #facc01;
+  background-color: #ff1c33;
 }
 
 .header::after{
@@ -75,7 +75,7 @@
 .trade_info .total{
   font-size: 68rpx;
   font-weight: bold;
-  color: #f7aa06;
+  color: #ff1c33;
 }
 
 .points_info{
@@ -98,7 +98,7 @@
 
 .points_info .item .num{
   font-size: 40rpx;
-  color: #f7aa06;
+  color: #ff1c33;
 }
 
 .top5{
@@ -123,7 +123,7 @@
   flex: 1;
   font-size: 34rpx;
   text-align: center;
-  color: #ec8a09;
+  color: #ff1c33;
 }
 
 .top5 .table .tbody .item{

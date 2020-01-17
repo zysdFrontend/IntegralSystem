@@ -116,7 +116,8 @@
 .list_item .content .date .count{
   margin-left: 80rpx;
   margin-right: 8rpx;
-  color: #facc01;
+  /* color: #facc01; */
+  color: #ff1c33;
 }
 
 .list_item .content .tag{

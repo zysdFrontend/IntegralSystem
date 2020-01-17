@@ -29,7 +29,7 @@ const userInfoChecked = (callback) => {
       confirmText: '授权',
       success: function (res) {
         if (res.confirm) {
-          wx.reLaunch({
+          wx.navigateTo({
             url: '/pages/authorize/authorize'
           });
         }
@@ -51,7 +51,7 @@ const userInfoChecked = (callback) => {
           confirmText: '授权',
           success: function (res) {
             if (res.confirm) {
-              wx.reLaunch({
+              wx.navigateTo({
                 url: '/pages/authorize/authorize'
               });
             }

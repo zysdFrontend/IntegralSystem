@@ -139,7 +139,7 @@
   margin-left: 40rpx;
   font-size: 32rpx;
   font-weight: bold;
-  color: #facc01;
+  color: #ff1c33;
 }
 
 .my_rank .points{

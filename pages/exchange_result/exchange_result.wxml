@@ -1,0 +1,11 @@
+<!--pages/exchange_result/exchange_result.wxml-->
+<view class="container">
+  <view class="result_text">
+    <image class="success_icon" src="../../assets/images/success2.svg"></image>
+    <view class="text">兑换成功</view>
+    <view class="num">{{amount}}</view>
+  </view>
+  <view class="finish_btn">
+    <button type="primary" class="btn" bindtap="toIndex">完成</button>
+  </view>
+</view>

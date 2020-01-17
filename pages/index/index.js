@@ -4,6 +4,7 @@ const app = getApp()
 
 Page({
   data: {
+    bannerImg: 'https://jf.join-share.net/static/banner.jpg?v=' + new Date().getDate(),
     transactionList: [],      // 交易记录
     currentPage: null,        // 当前页码
     totalPages: null,         // 总页数

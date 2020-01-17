@@ -1,0 +1,91 @@
+/* pages/exchange_prizes/exchange_prizes.wxss */
+.container{
+  position: relative;
+  height: 100%;
+}
+
+.header{
+  width: 100%;
+  height: 200rpx;
+  background-color: #ff1c33;
+}
+
+.header .icon_box{
+  padding: 20rpx 0 0 5%;
+}
+
+.header .icon_box .icon{
+  color: #fff;
+  font-size: 44rpx;
+}
+
+.content_wrapper{
+  position: absolute;
+  top: 150rpx;
+  left: 5%;
+  width: 90%;
+  height: auto;
+  margin: 0 auto;
+  background-color: rgba(255, 255, 255, .95);
+  border-radius: 10rpx;
+}
+
+.remainder_outer1{
+  width: 416rpx;
+  height: 416rpx;
+  margin: 60rpx auto 70rpx;
+  border: 4px solid rgba(250, 34, 34, 0.788);
+  border-radius: 50%;
+}
+
+.remainder_outer2{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 400rpx;
+  height: 400rpx;
+  color: #ff1c33;
+  border: 4px solid #ff1c33;
+  border-radius: 50%;
+}
+
+.remainder_outer2 .text{
+  margin-bottom: 38rpx;
+  font-size: 40rpx;
+  letter-spacing: 1px;
+}
+
+.remainder_outer2 .num{
+  font-size: 70rpx;
+  font-weight: bold;
+}
+
+.input_box{
+  margin-bottom: 40rpx;
+  text-align: center;
+}
+
+.input_box .input{
+  width: 80%;
+  height: 80rpx;
+  margin: 0 auto;
+  border: 1px solid #ccc;
+  border-radius: 40rpx;
+  color: #666;
+}
+
+.confirm_btn{
+  text-align: center;
+  margin-top: 60rpx;
+  margin-bottom: 40rpx;
+}
+
+.confirm_btn .confirm{
+  width: 80%;
+  height: 80rpx;
+  font-size: 30rpx;
+  border-radius: 40rpx;
+  background-color: #ff1c33;
+  color: #fff;
+}
