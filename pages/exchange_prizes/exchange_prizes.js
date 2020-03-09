@@ -29,6 +29,10 @@ Page({
 
   /**
    * 获取个人积分详情
+   * 
+   * @param: 
+   * @return:
+   * @author: 黎俊鸿
    */
   getAccountInfo () {
     let openid = wx.getStorageSync('openid');
@@ -49,6 +53,10 @@ Page({
 
   /**
    * 绑定转账输入框的输入内容
+   * 
+   * @param: e 事件对象
+   * @return:
+   * @author: 黎俊鸿
    */
   tradePointsInput (e) {
     this.setData({
@@ -58,6 +66,10 @@ Page({
 
   /**
    * 确认兑换
+   * 
+   * @param: e 事件对象
+   * @return:
+   * @author: 黎俊鸿
    */
   confirmTrade (e) {
     let _this = this;
@@ -115,6 +127,10 @@ Page({
 
   /**
    * 校验输入
+   * 
+   * @param:
+   * @return:
+   * @author: 黎俊鸿
    */
   checkInput () {
     // 正整数正则
@@ -139,6 +155,10 @@ Page({
 
   /**
    * 返回主页
+   * 
+   * @param:
+   * @return:
+   * @author: 黎俊鸿
    */
   toIndex() {
     wx.reLaunch({

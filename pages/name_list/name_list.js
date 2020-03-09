@@ -19,6 +19,10 @@ Page({
 
   /**
    * 获取人员名单
+   * 
+   * @param:
+   * @return:
+   * @author: 黎俊鸿
    */
   getPersonList () {
     let openid = wx.getStorageSync('openid');
@@ -41,6 +45,10 @@ Page({
 
   /**
    * 跳转到转账页
+   * 
+   * @param:
+   * @return:
+   * @author: 黎俊鸿
    */
   toTrade(e) {
     let openid = e.currentTarget.dataset.id;

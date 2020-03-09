@@ -21,6 +21,10 @@ Page({
 
   /**
    * 授权登录获取用户信息，并获取openid
+   * 
+   * @param: e 事件对象
+   * @return:
+   * @author: 黎俊鸿
    */
   bindGetUserInfo (e) {
     let _this = this;

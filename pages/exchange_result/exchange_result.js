@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    amount: ''
+    amount: ''    // 兑换盛赞数
   },
 
   /**
@@ -19,6 +19,10 @@ Page({
 
   /**
    * 返回首页
+   * 
+   * @param:
+   * @return:
+   * @author: 黎俊鸿
    */
   toIndex() {
     wx.reLaunch({

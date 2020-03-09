@@ -30,6 +30,10 @@ Page({
 
   /**
    * 获取历史记录
+   * 
+   * @param:
+   * @return:
+   * @author: 黎俊鸿
    */
   getHistoryList () {
     let openid = wx.getStorageSync('openid');
@@ -75,6 +79,10 @@ Page({
 
   /**
    * 加载更多
+   * 
+   * @param:
+   * @return:
+   * @author: 黎俊鸿
    */
   loadMore () {
     if (this.isLocked()) {    // 处于加锁状态
@@ -134,6 +142,10 @@ Page({
 
   /**
    * 判断是否处于加锁状态，防止加载更多请求频繁触发
+   * 
+   * @param:
+   * @return:
+   * @author: 黎俊鸿
    */
   isLocked() {
     return this.data.bottomLoading ? true : false;
@@ -141,6 +153,10 @@ Page({
 
   /**
    * 加锁
+   * 
+   * @param:
+   * @return:
+   * @author: 黎俊鸿
    */
   lock() {
     this.setData({
@@ -150,6 +166,10 @@ Page({
 
   /**
    * 解锁
+   * 
+   * @param:
+   * @return:
+   * @author: 黎俊鸿
    */
   unLock() {
     this.setData({
@@ -159,6 +179,10 @@ Page({
 
   /**
    * 判断是否有更多数据
+   * 
+   * @param:
+   * @return:
+   * @author: 黎俊鸿
    */
   hasMore() {
     if (this.data.currentPage < this.data.totalPages) {
@@ -170,6 +194,10 @@ Page({
 
   /**
    * 跳转到转账页
+   * 
+   * @param:
+   * @return:
+   * @author: 黎俊鸿
    */
   toTrade(e) {
     let openid = e.currentTarget.dataset.id;

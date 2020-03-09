@@ -42,6 +42,10 @@ Page({
 
   /**
    * 判断转账对象是否合法
+   * 
+   * @param:
+   * @return:
+   * @author: 黎俊鸿
    */
   checkReceiver (receiverOpenId) {
     let openid = wx.getStorageSync('openid');
@@ -62,6 +66,10 @@ Page({
 
   /**
    * 获取个人用户信息
+   * 
+   * @param:
+   * @return:
+   * @author: 黎俊鸿
    */
   onGetUserInfo() {
     if (app.globalData.userInfo) {
@@ -81,6 +89,10 @@ Page({
 
   /**
    * 获取收款方用户信息
+   * 
+   * @param:
+   * @return:
+   * @author: 黎俊鸿
    */
   getReceiverInfo () {
     wx.request({
@@ -107,6 +119,10 @@ Page({
 
   /**
    * 获取个人积分情况
+   * 
+   * @param:
+   * @return:
+   * @author: 黎俊鸿
    */
   getAccountInfo() {
     let openid = wx.getStorageSync('openid');
@@ -127,6 +143,10 @@ Page({
 
   /**
    * 获取标签
+   * 
+   * @param:
+   * @return:
+   * @author: 黎俊鸿
    */
   getTags () {
     wx.request({
@@ -148,6 +168,10 @@ Page({
 
   /**
    * 绑定转账输入框的输入内容
+   * 
+   * @param: e 事件对象
+   * @return:
+   * @author: 黎俊鸿
    */
   tradePointsInput (e) {
     this.setData({
@@ -157,6 +181,10 @@ Page({
 
   /**
    * 绑定转账理由的输入内容
+   * 
+   * @param: e 事件对象
+   * @return:
+   * @author: 黎俊鸿
    */
   tradeReasonInput (e) {
     this.setData({
@@ -166,6 +194,10 @@ Page({
 
   /**
    * 标签点击事件
+   * 
+   * @param: e 事件对象
+   * @return:
+   * @author: 黎俊鸿
    */
   handleTagTap (e) {
     let id = e.currentTarget.dataset.id;
@@ -182,6 +214,10 @@ Page({
 
   /**
    * 确认转账
+   * 
+   * @param:
+   * @return:
+   * @author: 黎俊鸿
    */
   confirmTrade (e) {
     let _this = this;
@@ -255,6 +291,10 @@ Page({
 
   /**
    * 积分转账校验 
+   * 
+   * @param:
+   * @return:
+   * @author: 黎俊鸿
    */
   checkInput() {
     // 正整数正则
@@ -292,6 +332,10 @@ Page({
 
   /**
    * 根据送赞类别判断送赞上限
+   * 
+   * @param:
+   * @return:
+   * @author: 黎俊鸿
    */
   checkMostPoints () {
     let _this = this;
@@ -317,6 +361,10 @@ Page({
 
   /**
    * 返回主页
+   * 
+   * @param:
+   * @return:
+   * @author: 黎俊鸿
    */
   toIndex () {
     wx.reLaunch({

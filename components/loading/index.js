@@ -4,8 +4,8 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    width: String,
-    height: String
+    width: String,      // 组件宽度
+    height: String      // 组件高度
   },
 
   /**

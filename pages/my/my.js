@@ -32,6 +32,10 @@ Page({
 
   /**
    * 跳转到授权登录页
+   * 
+   * @param:
+   * @return:
+   * @author: 黎俊鸿
    */
   toLogin() {
     wx.navigateTo({
@@ -41,6 +45,10 @@ Page({
 
   /**
    * 读取用户信息
+   * 
+   * @param:
+   * @return:
+   * @author: 黎俊鸿
    */
   onGetUserInfo() {
     if (app.globalData.userInfo) {
@@ -60,6 +68,10 @@ Page({
 
   /**
    * 获取个人积分详情
+   * 
+   * @param:
+   * @return:
+   * @author: 黎俊鸿
    */
   getAccountInfo() {
     let openid = wx.getStorageSync('openid');
@@ -95,6 +107,10 @@ Page({
 
   /**
    * 获取二维码图片
+   * 
+   * @param:
+   * @return:
+   * @author: 黎俊鸿
    */
   getQRcodePic() {
     let openid = wx.getStorageSync('openid');
@@ -114,6 +130,10 @@ Page({
 
   /**
    * 二维码图片加载完成事件
+   * 
+   * @param:
+   * @return:
+   * @author: 黎俊鸿
    */
   handlePicLoad(e) {
     this.setData({
@@ -123,6 +143,10 @@ Page({
 
   /**
    * 预览图片
+   * 
+   * @param:
+   * @return:
+   * @author: 黎俊鸿
    */
   previewPic() {
     let picUrl = this.data.qecodeUrl;
@@ -134,6 +158,10 @@ Page({
 
   /**
    * 跳转到收赞记录页
+   * 
+   * @param:
+   * @return:
+   * @author: 黎俊鸿
    */
   toHistory() {
     let openid = wx.getStorageSync('openid');
@@ -152,6 +180,10 @@ Page({
 
   /**
    * 监听下拉刷新
+   * 
+   * @param:
+   * @return:
+   * @author: 黎俊鸿
    */
   onPullDownRefresh() {
     this.setData({
@@ -171,6 +203,10 @@ Page({
 
   /**
    * 用户点击右上角分享
+   * 
+   * @param:
+   * @return:
+   * @author: 黎俊鸿
    */
   onShareAppMessage: function () {
     let openid = wx.getStorageSync('openid');

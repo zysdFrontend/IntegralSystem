@@ -18,6 +18,10 @@ Page({
 
   /**
    * 监听下拉刷新
+   * 
+   * @param:
+   * @return:
+   * @author: 黎俊鸿
    */
   onPullDownRefresh () {
     this.setData({
@@ -28,6 +32,10 @@ Page({
 
   /**
    * 初始化交易记录列表
+   * 
+   * @param:
+   * @return:
+   * @author: 黎俊鸿
    */
   initTransactionList () {
     wx.showLoading();
@@ -63,6 +71,10 @@ Page({
 
   /**
    * 加载更多
+   * 
+   * @param:
+   * @return:
+   * @author: 黎俊鸿
    */
   loadMore () {
     if (this.isLocked()) {  // 处于加锁状态
@@ -103,6 +115,10 @@ Page({
 
   /**
    * 页面上拉触底事件的处理函数
+   * 
+   * @param:
+   * @return:
+   * @author: 黎俊鸿
    */
   onReachBottom () {
     this.loadMore();
@@ -110,6 +126,10 @@ Page({
 
   /**
    * 判断是否处于加锁状态，防止加载更多请求频繁触发
+   * 
+   * @param:
+   * @return:
+   * @author: 黎俊鸿
    */
   isLocked () {
     return this.data.bottomLoading ? true : false;
@@ -117,6 +137,10 @@ Page({
 
   /**
    * 加锁
+   * 
+   * @param:
+   * @return:
+   * @author: 黎俊鸿
    */
   lock () {
     this.setData({
@@ -126,6 +150,10 @@ Page({
 
   /**
    * 解锁
+   * 
+   * @param:
+   * @return:
+   * @author: 黎俊鸿
    */
   unLock () {
     this.setData({
@@ -146,6 +174,10 @@ Page({
 
   /**
    * 调用相机扫二维码
+   * 
+   * @param:
+   * @return:
+   * @author: 黎俊鸿
    */
   getScancode () {
     wx.scanCode({
@@ -160,6 +192,10 @@ Page({
 
   /**
    * 用户点击右上角分享
+   * 
+   * @param:
+   * @return:
+   * @author: 黎俊鸿
    */
   onShareAppMessage: function () {
     return {
@@ -170,6 +206,10 @@ Page({
 
   /**
    * 跳转到转账页
+   * 
+   * @param:
+   * @return:
+   * @author: 黎俊鸿
    */
   toTrade (e) {
     let openid = e.currentTarget.dataset.id;
@@ -183,6 +223,10 @@ Page({
 
   /**
    * 跳转到送赞人员列表页
+   * 
+   * @param:
+   * @return:
+   * @author: 黎俊鸿
    */
   toNameList () {
     wx.navigateTo({

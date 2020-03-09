@@ -50,6 +50,10 @@ Page({
 
   /**
    * 获取排行榜数据
+   * 
+   * @param:
+   * @return:
+   * @author: 黎俊鸿
    */
   getRankInfo () {
     wx.showLoading();
@@ -84,6 +88,10 @@ Page({
 
   /**
    * 对排行榜数据数组进行处理
+   * 
+   * @param:
+   * @return:
+   * @author: 黎俊鸿
    */
   handleRankArr (arr) {
     if (arr.length <= 3) {
@@ -100,6 +108,10 @@ Page({
 
   /**
    * 读取用户信息
+   * 
+   * @param:
+   * @return:
+   * @author: 黎俊鸿
    */
   onGetUserInfo() {
     if (app.globalData.userInfo) {
@@ -119,6 +131,10 @@ Page({
 
   /**
    * 用户点击右上角分享
+   * 
+   * @param:
+   * @return:
+   * @author: 黎俊鸿
    */
   onShareAppMessage: function () {
     return {
@@ -129,6 +145,10 @@ Page({
 
   /**
    * 跳转到转账页
+   * 
+   * @param:
+   * @return:
+   * @author: 黎俊鸿
    */
   toTrade (e) {
     let openid = e.currentTarget.dataset.id;
