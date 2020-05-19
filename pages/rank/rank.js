@@ -63,11 +63,16 @@ Page({
       method: 'GET',
       data: {
         id: openid,
-        count: 10
+        count: 11
       },
       success: (res) => {
         if (res.data.result) {
+          let adminIndex = res.data.para1.findIndex(item => {
+            return item.wxid == 'o03qB4jeNDLV2KX5yaSAGG9f8X28';
+          });
+          if (adminIndex != -1) res.data.para1.splice(adminIndex, 1);
           this.handleRankArr(res.data.para1);
+          if (adminIndex != -1 && res.data.para2 > adminIndex + 1) res.data.para2--;
           this.setData({
             myRank: res.data.para2,
             userPointsInfo: res.data.para3

@@ -82,10 +82,14 @@ App({
   },
 
   globalData: {
+    // 用户信息
     userInfo: null,
+    // 登录所需的jscode
     jsCode: null,
+    // 是否已授权
     authorized: null,
     // pathPrefix: 'http://192.168.13.74:8000'
+    // API地址前缀
     pathPrefix: 'https://jf.join-share.net'
   }
 })
