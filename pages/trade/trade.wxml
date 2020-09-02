@@ -29,8 +29,8 @@
           mode="cover"
           wx:if="{{!receiverInfo.avatarUrl}}">
         </image>
-        <text class="userinfo_nickname">{{receiverInfo.name}}</text>
-        <text class="userinfo_nickname receciver_name" wx:if="{{!receiverInfo.name}}">...</text>
+        <text class="userinfo_nickname">{{receiverInfo.realname || receiverInfo.name}}</text>
+        <text class="userinfo_nickname receciver_name" wx:if="{{!receiverInfo.realname && !receiverInfo.name}}">...</text>
       </view>
     </view>
     <form report-submit bindsubmit="confirmTrade">

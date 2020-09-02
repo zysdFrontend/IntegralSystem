@@ -13,7 +13,7 @@
       </view>
       <view class="content">
         <view class="tradeName">
-          <text class="name">{{item.counterparty__name}}</text>
+          <text class="name">{{item.counterparty__realname || item.counterparty__name}}</text>
         </view>
         <view class="date">
           {{item.transaction_time}}

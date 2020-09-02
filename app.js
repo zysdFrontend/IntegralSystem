@@ -89,7 +89,8 @@ App({
     // 是否已授权
     authorized: null,
     // pathPrefix: 'http://192.168.13.74:8000'
+    pathPrefix: 'http://127.0.0.1:8000'
     // API地址前缀
-    pathPrefix: 'https://jf.join-share.net'
+    // pathPrefix: 'https://jf.join-share.net'
   }
 })

@@ -106,6 +106,7 @@ Page({
           // 保存收款方用户信息
           let infoObj = {
             name: res.data.name,
+            realname: res.data.realname, 
             wxid: res.data.wxid,
             avatarUrl: res.data.url
           };

@@ -51,7 +51,7 @@
             <image wx:elif="{{index === 2}}" src="../../assets/images/NO.3.svg"></image>
             <text data-index="index" wx:else>{{index + 1}}</text>
           </view>
-          <view><text>{{item.name}}</text></view>
+          <view><text>{{item.realname || item.name}}</text></view> 
           <view><text>{{item.balance_redpack}}</text></view>
           <view><text>{{item.balance5}}</text></view>
         </view>

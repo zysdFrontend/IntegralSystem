@@ -114,7 +114,8 @@ Page({
    */
   getQRcodePic() {
     let openid = wx.getStorageSync('openid');
-    let url = app.globalData.pathPrefix + '/getqrcode?id=' + openid;
+    if (!openid) return;
+    let url = app.globalData.pathPrefix + '/static/' + openid + '.png';
 
     // 用于模拟二维码加载中动画效果
     /* setTimeout(()=>{

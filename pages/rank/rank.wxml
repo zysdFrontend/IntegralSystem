@@ -7,7 +7,7 @@
         <image class="avatar" src="/assets/images/login_default.svg" wx:if="{{!top3Arr[1].img}}"></image>
       </block>
       <image class="rank" src="/assets/images/NO.2.svg"></image>
-      <text class="name">{{top3Arr[1].name}}</text>
+      <text class="name">{{top3Arr[1].realname || top3Arr[1].name}}</text>
       <text class="points">{{top3Arr[1].balance5}} 盛赞</text>
     </view>
     <view class="item item_big">
@@ -17,7 +17,7 @@
       </block>
       <image class="crown" src="/assets/images/crown.svg"></image>
       <image class="rank" src="/assets/images/NO.1.svg"></image>
-      <text class="name">{{top3Arr[0].name}}</text>
+      <text class="name">{{top3Arr[0].realname || top3Arr[0].name}}</text> 
       <text class="points">{{top3Arr[0].balance5}} 盛赞</text>
     </view>
     <view class="item item_small">
@@ -26,7 +26,7 @@
         <image class="avatar" src="/assets/images/login_default.svg" wx:if="{{!top3Arr[2].img}}"></image>
       </block>
       <image class="rank" src="/assets/images/NO.3.svg"></image>
-      <text class="name">{{top3Arr[2].name}}</text>
+      <text class="name">{{top3Arr[2].realname || top3Arr[2].name}}</text>
       <text class="points">{{top3Arr[2].balance5}} 盛赞</text>
     </view>
   </view>
@@ -54,7 +54,7 @@
             <image class="avatar" src="{{item.img}}" wx:if="{{item.img}}" data-id="{{item.wxid}}" bindtap="toTrade"></image>
             <image class="avatar" src="/assets/images/login_default.svg" wx:if="{{!item.img}}"></image>
           </view>
-          <text class="name">{{item.name}}</text>
+          <text class="name">{{item.realname || item.name}}</text>
         </view>
         <view class="points">
           <text class="count">{{item.balance5}}</text>盛赞

@@ -40,9 +40,9 @@
       </view>
       <view class="content">
         <view class="title">
-          <text class="name" data-id="{{item.counterparty__wxid}}" bindtap="toTrade">{{item.counterparty__name}}</text>
+          <text class="name" data-id="{{item.counterparty__wxid}}" bindtap="toTrade">{{item.counterparty__realname || item.counterparty__name}}</text> 
           获得
-          <text class="name" data-id="{{item.userid__wxid}}" bindtap="toTrade">{{item.userid__name}}</text>
+          <text class="name" data-id="{{item.userid__wxid}}" bindtap="toTrade">{{item.userid__realname || item.userid__name}}</text> 
           的盛赞
         </view>
         <view class="date">
